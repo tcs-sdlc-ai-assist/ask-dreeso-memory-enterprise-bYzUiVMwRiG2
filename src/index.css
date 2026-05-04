@@ -1,0 +1,137 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dreeso-dark-950 text-white font-sans min-h-screen;
+    margin: 0;
+    padding: 0;
+  }
+
+  /* Scrollbar styling */
+  ::-webkit-scrollbar {
+    width: 6px;
+    height: 6px;
+  }
+
+  ::-webkit-scrollbar-track {
+    @apply bg-dreeso-dark-900;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    @apply bg-dreeso-dark-600 rounded-full;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-dreeso-dark-500;
+  }
+
+  /* Firefox scrollbar */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: #5a5a5f #3b3b3d;
+  }
+}
+
+@layer components {
+  /* Glassmorphism card */
+  .glass-card {
+    @apply bg-glass-white backdrop-blur-md border border-glass-border rounded-2xl shadow-glass;
+  }
+
+  .glass-card-sm {
+    @apply bg-glass-white backdrop-blur-sm border border-glass-border rounded-xl shadow-glass-sm;
+  }
+
+  .glass-card-lg {
+    @apply bg-glass-white backdrop-blur-lg border border-glass-border rounded-4xl shadow-glass-lg;
+  }
+
+  /* Glassmorphism hover variant */
+  .glass-card-hover {
+    @apply glass-card transition-all duration-200 ease-out;
+  }
+
+  .glass-card-hover:hover {
+    @apply bg-glass-hover shadow-glass-lg;
+  }
+
+  /* Glassmorphism input */
+  .glass-input {
+    @apply bg-glass-white backdrop-blur-md border border-glass-border rounded-xl px-4 py-3 text-white placeholder-dreeso-dark-400 outline-none transition-all duration-200;
+  }
+
+  .glass-input:focus {
+    @apply border-dreeso-accent-500 shadow-accent-glow;
+  }
+
+  /* Glassmorphism button */
+  .glass-button {
+    @apply bg-glass-white backdrop-blur-md border border-glass-border rounded-xl px-4 py-2 text-white transition-all duration-200 cursor-pointer;
+  }
+
+  .glass-button:hover {
+    @apply bg-glass-hover;
+  }
+
+  /* Accent button */
+  .btn-accent {
+    @apply bg-dreeso-accent-500 text-white rounded-xl px-4 py-2 font-medium transition-all duration-200 cursor-pointer;
+  }
+
+  .btn-accent:hover {
+    @apply bg-dreeso-accent-600 shadow-accent-glow;
+  }
+
+  /* Shimmer loading effect */
+  .shimmer {
+    @apply animate-shimmer;
+    background: linear-gradient(
+      90deg,
+      rgba(255, 255, 255, 0.03) 25%,
+      rgba(255, 255, 255, 0.08) 50%,
+      rgba(255, 255, 255, 0.03) 75%
+    );
+    background-size: 200% 100%;
+  }
+
+  /* Shimmer placeholder block */
+  .shimmer-block {
+    @apply shimmer rounded-lg bg-dreeso-dark-800;
+  }
+}
+
+@layer utilities {
+  /* Text gradient utility */
+  .text-gradient-accent {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-dreeso-accent-400 to-dreeso-accent-300;
+  }
+
+  /* Hide scrollbar but keep functionality */
+  .scrollbar-hide {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Accent glow border */
+  .glow-border {
+    @apply border border-dreeso-accent-500/30 shadow-accent-glow;
+  }
+}

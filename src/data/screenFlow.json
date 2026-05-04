@@ -1,0 +1,286 @@
+[
+  {
+    "id": "screen-welcome",
+    "screenNumber": 1,
+    "title": "Welcome & System Overview",
+    "description": "Landing screen introducing Ask Dreeso Memory — the enterprise knowledge and memory assistant. Displays the system logo, tagline, and a brief overview of capabilities before prompting the user to begin.",
+    "personaId": null,
+    "componentName": "WelcomeScreen",
+    "nextScreen": "screen-persona-selection",
+    "prevScreen": null,
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-persona-selection",
+      "Enter": "screen-persona-selection"
+    }
+  },
+  {
+    "id": "screen-persona-selection",
+    "screenNumber": 2,
+    "title": "Persona Selection",
+    "description": "User selects one of four personas to explore the system from their perspective. Each persona card shows name, role, avatar initials, and a brief description of their focus areas.",
+    "personaId": null,
+    "componentName": "PersonaSelectionScreen",
+    "nextScreen": "screen-lukas-dashboard",
+    "prevScreen": "screen-welcome",
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-lukas-dashboard",
+      "ArrowLeft": "screen-welcome",
+      "1": "screen-lukas-dashboard",
+      "2": "screen-elena-dashboard",
+      "3": "screen-sophie-dashboard",
+      "4": "screen-james-dashboard"
+    }
+  },
+  {
+    "id": "screen-lukas-dashboard",
+    "screenNumber": 3,
+    "title": "Lukas — Project Director Dashboard",
+    "description": "Lukas Müller's personalized dashboard showing strategic oversight clusters, key portfolio metrics, and quick-access intelligence cards tailored to the Project Director role.",
+    "personaId": "persona-lukas",
+    "componentName": "PersonaDashboardScreen",
+    "nextScreen": "screen-lukas-query",
+    "prevScreen": "screen-persona-selection",
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-lukas-query",
+      "ArrowLeft": "screen-persona-selection"
+    }
+  },
+  {
+    "id": "screen-lukas-query",
+    "screenNumber": 4,
+    "title": "Lukas — Strategic Query & Response",
+    "description": "Lukas asks about the current status and strategic alignment of all active projects. The system responds with a rich data table, charts, and source system attribution.",
+    "personaId": "persona-lukas",
+    "componentName": "QueryResponseScreen",
+    "nextScreen": "screen-lukas-action",
+    "prevScreen": "screen-lukas-dashboard",
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-lukas-action",
+      "ArrowLeft": "screen-lukas-dashboard"
+    }
+  },
+  {
+    "id": "screen-lukas-action",
+    "screenNumber": 5,
+    "title": "Lukas — Cross-Domain Action & Propagation",
+    "description": "Lukas triggers an action such as escalating a risk. The system displays the confirmation dialog, cross-domain effects across connected systems, and the propagation chain with latency and confidence indicators.",
+    "personaId": "persona-lukas",
+    "componentName": "ActionPropagationScreen",
+    "nextScreen": "screen-elena-dashboard",
+    "prevScreen": "screen-lukas-query",
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-elena-dashboard",
+      "ArrowLeft": "screen-lukas-query"
+    }
+  },
+  {
+    "id": "screen-elena-dashboard",
+    "screenNumber": 6,
+    "title": "Elena — Senior Quantity Surveyor Dashboard",
+    "description": "Elena Rossi's personalized dashboard showing cost analysis clusters, procurement intelligence, and valuation tracking cards tailored to the Senior Quantity Surveyor role.",
+    "personaId": "persona-elena",
+    "componentName": "PersonaDashboardScreen",
+    "nextScreen": "screen-elena-query",
+    "prevScreen": "screen-lukas-action",
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-elena-query",
+      "ArrowLeft": "screen-lukas-action"
+    }
+  },
+  {
+    "id": "screen-elena-query",
+    "screenNumber": 7,
+    "title": "Elena — Cost Analysis Query & Response",
+    "description": "Elena queries the detailed cost breakdown and variance analysis for active projects. The system responds with cost tables, variance charts, and drill-down CTA bubbles.",
+    "personaId": "persona-elena",
+    "componentName": "QueryResponseScreen",
+    "nextScreen": "screen-elena-followup",
+    "prevScreen": "screen-elena-dashboard",
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-elena-followup",
+      "ArrowLeft": "screen-elena-dashboard"
+    }
+  },
+  {
+    "id": "screen-elena-followup",
+    "screenNumber": 8,
+    "title": "Elena — Follow-Up Query & Procurement",
+    "description": "Elena follows up with a procurement-focused query about supplier performance and outstanding claims. Demonstrates the conversational memory and context continuity of the system.",
+    "personaId": "persona-elena",
+    "componentName": "QueryResponseScreen",
+    "nextScreen": "screen-elena-action",
+    "prevScreen": "screen-elena-query",
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-elena-action",
+      "ArrowLeft": "screen-elena-query"
+    }
+  },
+  {
+    "id": "screen-elena-action",
+    "screenNumber": 9,
+    "title": "Elena — Budget Update Action & Propagation",
+    "description": "Elena triggers a budget update action. The system shows the confirmation dialog, affected systems including SAP FI, SAP MM, and Primavera P6, and the full propagation chain.",
+    "personaId": "persona-elena",
+    "componentName": "ActionPropagationScreen",
+    "nextScreen": "screen-sophie-dashboard",
+    "prevScreen": "screen-elena-followup",
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-sophie-dashboard",
+      "ArrowLeft": "screen-elena-followup"
+    }
+  },
+  {
+    "id": "screen-sophie-dashboard",
+    "screenNumber": 10,
+    "title": "Sophie — Project Manager Dashboard",
+    "description": "Sophie Dubois's personalized dashboard showing schedule management clusters, resource allocation, and progress tracking cards tailored to the Project Manager role.",
+    "personaId": "persona-sophie",
+    "componentName": "PersonaDashboardScreen",
+    "nextScreen": "screen-sophie-query",
+    "prevScreen": "screen-elena-action",
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-sophie-query",
+      "ArrowLeft": "screen-elena-action"
+    }
+  },
+  {
+    "id": "screen-sophie-query",
+    "screenNumber": 11,
+    "title": "Sophie — Schedule & Milestone Query",
+    "description": "Sophie queries the critical path and upcoming milestones for her projects. The system responds with milestone tables, status distributions, and at-risk indicators.",
+    "personaId": "persona-sophie",
+    "componentName": "QueryResponseScreen",
+    "nextScreen": "screen-sophie-resource",
+    "prevScreen": "screen-sophie-dashboard",
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-sophie-resource",
+      "ArrowLeft": "screen-sophie-dashboard"
+    }
+  },
+  {
+    "id": "screen-sophie-resource",
+    "screenNumber": 12,
+    "title": "Sophie — Resource Conflict Resolution",
+    "description": "Sophie reviews resource allocation conflicts across her project teams. The system highlights double-bookings, suggests resolutions, and shows team utilization metrics.",
+    "personaId": "persona-sophie",
+    "componentName": "QueryResponseScreen",
+    "nextScreen": "screen-sophie-action",
+    "prevScreen": "screen-sophie-query",
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-sophie-action",
+      "ArrowLeft": "screen-sophie-query"
+    }
+  },
+  {
+    "id": "screen-sophie-action",
+    "screenNumber": 13,
+    "title": "Sophie — Task Reassignment & Propagation",
+    "description": "Sophie triggers a task reassignment action. The system displays the propagation chain across Primavera P6, Workday, and Procore with real-time update indicators.",
+    "personaId": "persona-sophie",
+    "componentName": "ActionPropagationScreen",
+    "nextScreen": "screen-james-dashboard",
+    "prevScreen": "screen-sophie-resource",
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-james-dashboard",
+      "ArrowLeft": "screen-sophie-resource"
+    }
+  },
+  {
+    "id": "screen-james-dashboard",
+    "screenNumber": 14,
+    "title": "James — Sales Director Dashboard",
+    "description": "James Carter's personalized dashboard showing sales pipeline clusters, client insights, and market intelligence cards tailored to the Sales Director role.",
+    "personaId": "persona-james",
+    "componentName": "PersonaDashboardScreen",
+    "nextScreen": "screen-james-query",
+    "prevScreen": "screen-sophie-action",
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-james-query",
+      "ArrowLeft": "screen-sophie-action"
+    }
+  },
+  {
+    "id": "screen-james-query",
+    "screenNumber": 15,
+    "title": "James — Pipeline & Client Health Query",
+    "description": "James queries the current sales pipeline and client health scores. The system responds with pipeline stage breakdowns, trend charts, and engagement indicators.",
+    "personaId": "persona-james",
+    "componentName": "QueryResponseScreen",
+    "nextScreen": "screen-james-market",
+    "prevScreen": "screen-james-dashboard",
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-james-market",
+      "ArrowLeft": "screen-james-dashboard"
+    }
+  },
+  {
+    "id": "screen-james-market",
+    "screenNumber": 16,
+    "title": "James — Market Intelligence & Competitors",
+    "description": "James explores market trends and competitor activity. The system presents sector growth forecasts, competitor moves, and upcoming tender opportunities.",
+    "personaId": "persona-james",
+    "componentName": "QueryResponseScreen",
+    "nextScreen": "screen-james-action",
+    "prevScreen": "screen-james-query",
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-james-action",
+      "ArrowLeft": "screen-james-query"
+    }
+  },
+  {
+    "id": "screen-james-action",
+    "screenNumber": 17,
+    "title": "James — Proposal Submission & Propagation",
+    "description": "James triggers a proposal submission action. The system shows the confirmation dialog, cross-domain effects on Salesforce, SAP FI, and Workday, and the propagation chain.",
+    "personaId": "persona-james",
+    "componentName": "ActionPropagationScreen",
+    "nextScreen": "screen-cross-domain-overview",
+    "prevScreen": "screen-james-market",
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-cross-domain-overview",
+      "ArrowLeft": "screen-james-market"
+    }
+  },
+  {
+    "id": "screen-cross-domain-overview",
+    "screenNumber": 18,
+    "title": "Cross-Domain System Map",
+    "description": "A visual overview of all connected enterprise systems showing data flow relationships, propagation paths, and real-time synchronization status across the entire platform.",
+    "personaId": null,
+    "componentName": "CrossDomainMapScreen",
+    "nextScreen": "screen-memory-showcase",
+    "prevScreen": "screen-james-action",
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-memory-showcase",
+      "ArrowLeft": "screen-james-action"
+    }
+  },
+  {
+    "id": "screen-memory-showcase",
+    "screenNumber": 19,
+    "title": "Memory & Context Showcase",
+    "description": "Demonstrates the system's memory capabilities — how context is preserved across queries, how persona-specific insights are retained, and how cross-session intelligence builds over time.",
+    "personaId": null,
+    "componentName": "MemoryShowcaseScreen",
+    "nextScreen": "screen-closing",
+    "prevScreen": "screen-cross-domain-overview",
+    "keyboardShortcuts": {
+      "ArrowRight": "screen-closing",
+      "ArrowLeft": "screen-cross-domain-overview"
+    }
+  },
+  {
+    "id": "screen-closing",
+    "screenNumber": 20,
+    "title": "Closing & Call to Action",
+    "description": "Final screen summarizing the key capabilities demonstrated throughout the prototype. Includes a call to action for next steps, contact information, and links to explore further.",
+    "personaId": null,
+    "componentName": "ClosingScreen",
+    "nextScreen": null,
+    "prevScreen": "screen-memory-showcase",
+    "keyboardShortcuts": {
+      "ArrowLeft": "screen-memory-showcase",
+      "Home": "screen-welcome"
+    }
+  }
+]

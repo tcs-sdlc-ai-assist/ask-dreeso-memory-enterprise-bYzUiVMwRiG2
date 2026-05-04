@@ -1,0 +1,34 @@
+[
+  {
+    "id": "user-001",
+    "email": "lukas.muller@dreeso.com",
+    "password": "demo1234",
+    "personaId": "persona-lukas",
+    "displayName": "Lukas Müller",
+    "createdAt": "2024-01-15T09:00:00.000Z"
+  },
+  {
+    "id": "user-002",
+    "email": "elena.rossi@dreeso.com",
+    "password": "demo1234",
+    "personaId": "persona-elena",
+    "displayName": "Elena Rossi",
+    "createdAt": "2024-01-15T09:30:00.000Z"
+  },
+  {
+    "id": "user-003",
+    "email": "sophie.dubois@dreeso.com",
+    "password": "demo1234",
+    "personaId": "persona-sophie",
+    "displayName": "Sophie Dubois",
+    "createdAt": "2024-02-01T10:00:00.000Z"
+  },
+  {
+    "id": "user-004",
+    "email": "james.carter@dreeso.com",
+    "password": "demo1234",
+    "personaId": "persona-james",
+    "displayName": "James Carter",
+    "createdAt": "2024-02-10T14:00:00.000Z"
+  }
+]

@@ -1,0 +1,470 @@
+[
+  {
+    "id": "action-reassign-task",
+    "type": "reassign",
+    "label": "Reassign Task",
+    "description": "Reassign a project task to a different team member or discipline group.",
+    "targetSystem": "system-primavera-p6",
+    "affectedPersonaIds": ["persona-sophie", "persona-lukas"],
+    "confirmationMessage": "Are you sure you want to reassign this task? The current assignee will be notified and the schedule will be recalculated.",
+    "crossDomainEffects": [
+      {
+        "system": "system-primavera-p6",
+        "effect": "Schedule recalculated with new resource assignment and updated critical path"
+      },
+      {
+        "system": "system-workday",
+        "effect": "Resource allocation updated for both previous and new assignees"
+      },
+      {
+        "system": "system-procore",
+        "effect": "Field task assignment updated and notification sent to site team"
+      }
+    ],
+    "category": "workforce",
+    "requiredPermissions": ["manage_tasks", "manage_team"],
+    "priority": 1
+  },
+  {
+    "id": "action-approve-rfi",
+    "type": "approve",
+    "label": "Approve RFI",
+    "description": "Review and approve a Request for Information submitted by the project team or subcontractor.",
+    "targetSystem": "system-procore",
+    "affectedPersonaIds": ["persona-sophie", "persona-elena"],
+    "confirmationMessage": "Approving this RFI will update the project documentation and notify all stakeholders. Do you want to proceed?",
+    "crossDomainEffects": [
+      {
+        "system": "system-procore",
+        "effect": "RFI status updated to approved and linked documents revised"
+      },
+      {
+        "system": "system-navisworks",
+        "effect": "BIM model flagged for update if RFI impacts design coordination"
+      },
+      {
+        "system": "system-primavera-p6",
+        "effect": "Schedule impact assessment triggered if RFI affects critical activities"
+      }
+    ],
+    "category": "management",
+    "requiredPermissions": ["manage_projects", "manage_tasks"],
+    "priority": 2
+  },
+  {
+    "id": "action-update-budget",
+    "type": "update",
+    "label": "Update Budget Allocation",
+    "description": "Modify the approved budget allocation for a project or cost category, including contingency reallocation.",
+    "targetSystem": "system-sap-fi",
+    "affectedPersonaIds": ["persona-lukas", "persona-elena"],
+    "confirmationMessage": "This budget update will modify the approved financial baseline. Management approval may be required for variances exceeding 5%. Proceed?",
+    "crossDomainEffects": [
+      {
+        "system": "system-sap-fi",
+        "effect": "General ledger updated with revised budget allocation and variance recalculated"
+      },
+      {
+        "system": "system-sap-mm",
+        "effect": "Procurement commitment limits adjusted to reflect new budget ceiling"
+      },
+      {
+        "system": "system-primavera-p6",
+        "effect": "Earned value baseline updated with revised budget at completion"
+      }
+    ],
+    "category": "finance",
+    "requiredPermissions": ["approve_budgets", "manage_costs"],
+    "priority": 1
+  },
+  {
+    "id": "action-escalate-risk",
+    "type": "escalate",
+    "label": "Escalate Risk",
+    "description": "Escalate an identified risk to senior management for review, additional mitigation resources, or executive decision.",
+    "targetSystem": "system-procore",
+    "affectedPersonaIds": ["persona-lukas", "persona-sophie"],
+    "confirmationMessage": "Escalating this risk will notify the Project Director and trigger an executive review. The risk will be added to the portfolio risk register. Continue?",
+    "crossDomainEffects": [
+      {
+        "system": "system-procore",
+        "effect": "Risk severity upgraded and added to portfolio-level risk register"
+      },
+      {
+        "system": "system-primavera-p6",
+        "effect": "Schedule risk analysis re-run with updated risk parameters"
+      },
+      {
+        "system": "system-sap-fi",
+        "effect": "Contingency reserve flagged for potential drawdown based on risk exposure"
+      }
+    ],
+    "category": "risk",
+    "requiredPermissions": ["manage_projects", "manage_tasks"],
+    "priority": 1
+  },
+  {
+    "id": "action-approve-variation-order",
+    "type": "approve",
+    "label": "Approve Variation Order",
+    "description": "Approve a contract variation order including scope changes, cost adjustments, and schedule extensions.",
+    "targetSystem": "system-sap-fi",
+    "affectedPersonaIds": ["persona-lukas", "persona-elena", "persona-sophie"],
+    "confirmationMessage": "Approving this variation order will update the contract sum, adjust the project budget, and may extend the completion date. This action requires dual authorization for values exceeding CHF 100K. Proceed?",
+    "crossDomainEffects": [
+      {
+        "system": "system-sap-fi",
+        "effect": "Contract sum updated and revised budget committed in financial system"
+      },
+      {
+        "system": "system-sap-mm",
+        "effect": "New procurement requirements generated for additional scope items"
+      },
+      {
+        "system": "system-primavera-p6",
+        "effect": "Schedule updated with additional activities and revised completion milestone"
+      },
+      {
+        "system": "system-procore",
+        "effect": "Variation order logged in document control and distributed to site team"
+      }
+    ],
+    "category": "finance",
+    "requiredPermissions": ["approve_budgets", "manage_costs", "manage_projects"],
+    "priority": 2
+  },
+  {
+    "id": "action-certify-payment",
+    "type": "approve",
+    "label": "Certify Interim Payment",
+    "description": "Certify an interim payment application after quantity surveyor review and measurement verification.",
+    "targetSystem": "system-sap-fi",
+    "affectedPersonaIds": ["persona-elena", "persona-lukas"],
+    "confirmationMessage": "Certifying this payment will authorize the finance team to process the payment within the contractual payment period. Ensure all measurements have been verified. Proceed?",
+    "crossDomainEffects": [
+      {
+        "system": "system-sap-fi",
+        "effect": "Payment instruction generated and queued for accounts payable processing"
+      },
+      {
+        "system": "system-sap-mm",
+        "effect": "Goods receipt confirmed against certified quantities"
+      },
+      {
+        "system": "system-procore",
+        "effect": "Payment certification record linked to project documentation"
+      }
+    ],
+    "category": "finance",
+    "requiredPermissions": ["submit_valuations", "manage_costs"],
+    "priority": 2
+  },
+  {
+    "id": "action-issue-ncr",
+    "type": "create",
+    "label": "Issue Non-Conformance Report",
+    "description": "Issue a formal non-conformance report against a subcontractor or work package for quality deficiency.",
+    "targetSystem": "system-procore",
+    "affectedPersonaIds": ["persona-sophie", "persona-elena"],
+    "confirmationMessage": "Issuing this NCR will formally notify the responsible party and require a corrective action response within the contractual timeframe. Proceed?",
+    "crossDomainEffects": [
+      {
+        "system": "system-procore",
+        "effect": "NCR logged in quality management system with corrective action deadline set"
+      },
+      {
+        "system": "system-vendor-compliance-db",
+        "effect": "Supplier performance score updated to reflect non-conformance"
+      },
+      {
+        "system": "system-sap-fi",
+        "effect": "Cost of rectification tracked and potential back-charge initiated"
+      }
+    ],
+    "category": "compliance",
+    "requiredPermissions": ["manage_tasks", "manage_projects"],
+    "priority": 3
+  },
+  {
+    "id": "action-submit-proposal",
+    "type": "submit",
+    "label": "Submit Proposal",
+    "description": "Submit a completed bid proposal to the client through the formal tender submission process.",
+    "targetSystem": "system-salesforce",
+    "affectedPersonaIds": ["persona-james", "persona-lukas"],
+    "confirmationMessage": "Submitting this proposal is a formal contractual action. Ensure all sections are complete, pricing is approved, and all required attachments are included. This cannot be undone. Submit?",
+    "crossDomainEffects": [
+      {
+        "system": "system-salesforce",
+        "effect": "Opportunity stage updated to 'Proposal Submitted' with submission timestamp"
+      },
+      {
+        "system": "system-sap-fi",
+        "effect": "Revenue forecast updated with weighted pipeline value adjustment"
+      },
+      {
+        "system": "system-workday",
+        "effect": "Resource pre-allocation flagged for mobilization planning if bid is successful"
+      }
+    ],
+    "category": "sales",
+    "requiredPermissions": ["manage_proposals"],
+    "priority": 1
+  },
+  {
+    "id": "action-update-client-engagement",
+    "type": "update",
+    "label": "Update Client Engagement Record",
+    "description": "Log a client interaction, update the relationship health score, and record follow-up action items.",
+    "targetSystem": "system-salesforce",
+    "affectedPersonaIds": ["persona-james"],
+    "confirmationMessage": "This will update the client engagement record and trigger any automated follow-up reminders. Proceed?",
+    "crossDomainEffects": [
+      {
+        "system": "system-salesforce",
+        "effect": "Client health score recalculated and engagement timeline updated"
+      },
+      {
+        "system": "system-procore",
+        "effect": "Stakeholder communication log updated if linked to active project"
+      }
+    ],
+    "category": "sales",
+    "requiredPermissions": ["manage_clients"],
+    "priority": 3
+  },
+  {
+    "id": "action-reallocate-resources",
+    "type": "update",
+    "label": "Reallocate Resources",
+    "description": "Move team members between projects or disciplines to resolve resource conflicts and capacity gaps.",
+    "targetSystem": "system-workday",
+    "affectedPersonaIds": ["persona-sophie", "persona-lukas"],
+    "confirmationMessage": "Reallocating these resources will update assignments across affected projects. Both project managers will be notified. Schedule impacts will be recalculated. Proceed?",
+    "crossDomainEffects": [
+      {
+        "system": "system-workday",
+        "effect": "Employee assignment records updated with new project allocation percentages"
+      },
+      {
+        "system": "system-primavera-p6",
+        "effect": "Resource histograms recalculated and schedule re-leveled for affected projects"
+      },
+      {
+        "system": "system-procore",
+        "effect": "Site access and safety induction requirements updated for reassigned personnel"
+      }
+    ],
+    "category": "workforce",
+    "requiredPermissions": ["manage_team"],
+    "priority": 2
+  },
+  {
+    "id": "action-approve-procurement-award",
+    "type": "approve",
+    "label": "Approve Procurement Award",
+    "description": "Approve the award of a procurement package to the recommended supplier following tender evaluation.",
+    "targetSystem": "system-sap-mm",
+    "affectedPersonaIds": ["persona-elena", "persona-lukas"],
+    "confirmationMessage": "Approving this procurement award will generate a purchase order and commit the budget. The unsuccessful tenderers will be notified. Proceed?",
+    "crossDomainEffects": [
+      {
+        "system": "system-sap-mm",
+        "effect": "Purchase order generated and sent to awarded supplier"
+      },
+      {
+        "system": "system-sap-fi",
+        "effect": "Budget commitment recorded against the project cost code"
+      },
+      {
+        "system": "system-vendor-compliance-db",
+        "effect": "Supplier compliance checks verified and contract record created"
+      },
+      {
+        "system": "system-primavera-p6",
+        "effect": "Delivery milestones added to project schedule based on supplier lead times"
+      }
+    ],
+    "category": "procurement",
+    "requiredPermissions": ["manage_costs", "approve_budgets"],
+    "priority": 2
+  },
+  {
+    "id": "action-submit-compliance-report",
+    "type": "submit",
+    "label": "Submit Compliance Report",
+    "description": "Submit a regulatory compliance report to the relevant authority or internal governance body.",
+    "targetSystem": "system-amsterdam-authority-portal",
+    "affectedPersonaIds": ["persona-lukas", "persona-sophie"],
+    "confirmationMessage": "This compliance report will be submitted to the regulatory authority. Ensure all data has been verified and supporting documentation is attached. This submission is auditable. Proceed?",
+    "crossDomainEffects": [
+      {
+        "system": "system-amsterdam-authority-portal",
+        "effect": "Compliance submission logged with authority reference number and acknowledgement"
+      },
+      {
+        "system": "system-procore",
+        "effect": "Project compliance tracker updated with submission date and status"
+      },
+      {
+        "system": "system-esg-registry",
+        "effect": "ESG metrics updated if report includes environmental or sustainability data"
+      }
+    ],
+    "category": "compliance",
+    "requiredPermissions": ["manage_projects", "view_reports"],
+    "priority": 3
+  },
+  {
+    "id": "action-update-schedule-baseline",
+    "type": "update",
+    "label": "Update Schedule Baseline",
+    "description": "Re-baseline the project schedule following an approved change order or recovery plan.",
+    "targetSystem": "system-primavera-p6",
+    "affectedPersonaIds": ["persona-sophie", "persona-lukas"],
+    "confirmationMessage": "Re-baselining the schedule will reset all earned value calculations and variance tracking. This requires Project Director approval. Proceed with the re-baseline request?",
+    "crossDomainEffects": [
+      {
+        "system": "system-primavera-p6",
+        "effect": "New baseline stored and all SPI/CPI metrics recalculated from new reference"
+      },
+      {
+        "system": "system-procore",
+        "effect": "Updated milestone dates distributed to field teams and subcontractors"
+      },
+      {
+        "system": "system-sap-fi",
+        "effect": "Cash flow forecast updated to align with revised schedule milestones"
+      }
+    ],
+    "category": "schedule",
+    "requiredPermissions": ["manage_schedule", "manage_projects"],
+    "priority": 2
+  },
+  {
+    "id": "action-log-partnership-milestone",
+    "type": "create",
+    "label": "Log Partnership Milestone",
+    "description": "Record a key milestone or decision point in a strategic partnership or joint venture relationship.",
+    "targetSystem": "system-salesforce",
+    "affectedPersonaIds": ["persona-james", "persona-lukas"],
+    "confirmationMessage": "This milestone will be added to the partnership record and visible to all stakeholders with partnership access. Proceed?",
+    "crossDomainEffects": [
+      {
+        "system": "system-salesforce",
+        "effect": "Partnership timeline updated and stakeholder notifications triggered"
+      },
+      {
+        "system": "system-sap-fi",
+        "effect": "Joint venture financial tracking updated if milestone has revenue implications"
+      }
+    ],
+    "category": "sales",
+    "requiredPermissions": ["manage_clients", "manage_proposals"],
+    "priority": 4
+  },
+  {
+    "id": "action-reject-subcontractor-claim",
+    "type": "reject",
+    "label": "Reject Subcontractor Claim",
+    "description": "Formally reject a subcontractor claim with documented justification and contractual references.",
+    "targetSystem": "system-sap-fi",
+    "affectedPersonaIds": ["persona-elena", "persona-sophie"],
+    "confirmationMessage": "Rejecting this claim will formally notify the subcontractor with your stated reasons. Ensure the rejection is supported by contractual evidence. The subcontractor may escalate to dispute resolution. Proceed?",
+    "crossDomainEffects": [
+      {
+        "system": "system-sap-fi",
+        "effect": "Claim status updated to rejected and removed from accrued liabilities"
+      },
+      {
+        "system": "system-procore",
+        "effect": "Claim rejection letter generated and logged in contract administration records"
+      },
+      {
+        "system": "system-vendor-compliance-db",
+        "effect": "Subcontractor claims history updated for performance tracking"
+      }
+    ],
+    "category": "procurement",
+    "requiredPermissions": ["manage_costs", "submit_valuations"],
+    "priority": 3
+  },
+  {
+    "id": "action-generate-executive-report",
+    "type": "create",
+    "label": "Generate Executive Report",
+    "description": "Compile and generate a consolidated executive performance report from all connected source systems.",
+    "targetSystem": "system-procore",
+    "affectedPersonaIds": ["persona-lukas"],
+    "confirmationMessage": "This will generate a consolidated report pulling data from all connected systems. The report will be available in the executive dashboard within 5 minutes. Generate now?",
+    "crossDomainEffects": [
+      {
+        "system": "system-procore",
+        "effect": "Project performance data extracted and consolidated into report template"
+      },
+      {
+        "system": "system-sap-fi",
+        "effect": "Financial KPIs and budget data pulled for the reporting period"
+      },
+      {
+        "system": "system-primavera-p6",
+        "effect": "Schedule performance metrics and milestone status extracted"
+      },
+      {
+        "system": "system-workday",
+        "effect": "Workforce utilization and capacity data included in report"
+      }
+    ],
+    "category": "reporting",
+    "requiredPermissions": ["view_reports", "view_all_projects"],
+    "priority": 3
+  },
+  {
+    "id": "action-update-esg-metrics",
+    "type": "update",
+    "label": "Update ESG Metrics",
+    "description": "Update environmental, social, and governance metrics for a project including carbon emissions and sustainability scores.",
+    "targetSystem": "system-esg-registry",
+    "affectedPersonaIds": ["persona-lukas", "persona-sophie"],
+    "confirmationMessage": "Updating ESG metrics will recalculate the project sustainability score and may affect compliance status. Ensure data has been verified by the sustainability team. Proceed?",
+    "crossDomainEffects": [
+      {
+        "system": "system-esg-registry",
+        "effect": "Sustainability dashboard updated with new metrics and trend recalculated"
+      },
+      {
+        "system": "system-procore",
+        "effect": "Project environmental compliance status refreshed"
+      },
+      {
+        "system": "system-amsterdam-authority-portal",
+        "effect": "Regulatory reporting data flagged for update if thresholds are affected"
+      }
+    ],
+    "category": "compliance",
+    "requiredPermissions": ["manage_projects", "view_reports"],
+    "priority": 4
+  },
+  {
+    "id": "action-create-revenue-forecast",
+    "type": "create",
+    "label": "Create Revenue Forecast",
+    "description": "Generate a revenue forecast model based on current pipeline, win probabilities, and contract backlog.",
+    "targetSystem": "system-salesforce",
+    "affectedPersonaIds": ["persona-james", "persona-lukas"],
+    "confirmationMessage": "This will create a new revenue forecast snapshot based on current pipeline data. The forecast will be shared with the finance team for consolidation. Proceed?",
+    "crossDomainEffects": [
+      {
+        "system": "system-salesforce",
+        "effect": "Forecast snapshot saved with weighted pipeline values and probability adjustments"
+      },
+      {
+        "system": "system-sap-fi",
+        "effect": "Revenue projection data shared with financial planning for budget alignment"
+      }
+    ],
+    "category": "finance",
+    "requiredPermissions": ["view_pipeline", "view_reports"],
+    "priority": 3
+  }
+]

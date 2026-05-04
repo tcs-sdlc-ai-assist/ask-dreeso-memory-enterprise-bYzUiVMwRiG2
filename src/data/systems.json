@@ -1,0 +1,82 @@
+[
+  {
+    "id": "system-procore",
+    "name": "Procore",
+    "shortName": "Procore",
+    "color": "#F47E20",
+    "icon": "hard-hat",
+    "description": "Construction project management platform for field coordination, document control, and quality & safety tracking."
+  },
+  {
+    "id": "system-sap-mm",
+    "name": "SAP Material Management",
+    "shortName": "SAP MM",
+    "color": "#0070F2",
+    "icon": "package",
+    "description": "Enterprise material management module handling procurement, inventory management, and goods receipt processing."
+  },
+  {
+    "id": "system-sap-fi",
+    "name": "SAP Financial Accounting",
+    "shortName": "SAP FI",
+    "color": "#0053B8",
+    "icon": "wallet",
+    "description": "Core financial accounting module managing general ledger, accounts payable/receivable, and financial reporting."
+  },
+  {
+    "id": "system-navisworks",
+    "name": "Autodesk Navisworks",
+    "shortName": "Navisworks",
+    "color": "#1CA54C",
+    "icon": "box",
+    "description": "BIM coordination and clash detection platform for 3D model review, simulation, and construction sequencing."
+  },
+  {
+    "id": "system-primavera-p6",
+    "name": "Oracle Primavera P6",
+    "shortName": "Primavera P6",
+    "color": "#C74634",
+    "icon": "calendar",
+    "description": "Enterprise project portfolio management system for scheduling, critical path analysis, and resource planning."
+  },
+  {
+    "id": "system-salesforce",
+    "name": "Salesforce CRM",
+    "shortName": "Salesforce",
+    "color": "#00A1E0",
+    "icon": "cloud",
+    "description": "Customer relationship management platform for sales pipeline tracking, client engagement, and opportunity management."
+  },
+  {
+    "id": "system-workday",
+    "name": "Workday HCM",
+    "shortName": "Workday",
+    "color": "#F68D2E",
+    "icon": "users",
+    "description": "Human capital management system for workforce planning, talent management, and employee resource allocation."
+  },
+  {
+    "id": "system-vendor-compliance-db",
+    "name": "Vendor Compliance Database",
+    "shortName": "Vendor Compliance DB",
+    "color": "#7B61FF",
+    "icon": "clipboard-check",
+    "description": "Centralized vendor compliance tracking system for supplier certifications, audit records, and regulatory adherence."
+  },
+  {
+    "id": "system-esg-registry",
+    "name": "ESG Registry",
+    "shortName": "ESG Registry",
+    "color": "#34A853",
+    "icon": "leaf",
+    "description": "Environmental, social, and governance data registry for sustainability metrics, carbon tracking, and ESG reporting."
+  },
+  {
+    "id": "system-amsterdam-authority-portal",
+    "name": "Amsterdam Authority Portal",
+    "shortName": "Amsterdam Authority",
+    "color": "#E4003A",
+    "icon": "landmark",
+    "description": "Municipal authority portal for permit applications, regulatory submissions, and local government compliance tracking."
+  }
+]

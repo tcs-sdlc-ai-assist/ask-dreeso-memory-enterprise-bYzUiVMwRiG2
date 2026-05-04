@@ -1,0 +1,422 @@
+[
+  {
+    "personaId": "persona-lukas",
+    "suggestions": [
+      {
+        "text": "Show me the current status and strategic alignment of all active projects",
+        "category": "management",
+        "relevanceScore": 0.98
+      },
+      {
+        "text": "What is the current budget utilization and cost variance across all projects?",
+        "category": "finance",
+        "relevanceScore": 0.96
+      },
+      {
+        "text": "What are the top risks across the portfolio and their mitigation status?",
+        "category": "risk",
+        "relevanceScore": 0.95
+      },
+      {
+        "text": "Generate an executive summary of project performance for this quarter",
+        "category": "reporting",
+        "relevanceScore": 0.94
+      },
+      {
+        "text": "Show me current workforce utilization and capacity gaps across projects",
+        "category": "workforce",
+        "relevanceScore": 0.92
+      },
+      {
+        "text": "What is the current compliance and governance status across the portfolio?",
+        "category": "compliance",
+        "relevanceScore": 0.90
+      },
+      {
+        "text": "Which projects have the highest strategic impact score?",
+        "category": "management",
+        "relevanceScore": 0.88
+      },
+      {
+        "text": "What milestones are due in the next 30 days?",
+        "category": "schedule",
+        "relevanceScore": 0.87
+      },
+      {
+        "text": "Compare project health trends over the last quarter",
+        "category": "reporting",
+        "relevanceScore": 0.86
+      },
+      {
+        "text": "Show me the cash flow forecast for Q3",
+        "category": "finance",
+        "relevanceScore": 0.85
+      },
+      {
+        "text": "Which cost categories are driving the variance?",
+        "category": "finance",
+        "relevanceScore": 0.84
+      },
+      {
+        "text": "What is the financial exposure of the top 5 risks?",
+        "category": "risk",
+        "relevanceScore": 0.83
+      },
+      {
+        "text": "Which risks have been escalated in the last 7 days?",
+        "category": "risk",
+        "relevanceScore": 0.82
+      },
+      {
+        "text": "Generate a risk summary report for the board",
+        "category": "reporting",
+        "relevanceScore": 0.81
+      },
+      {
+        "text": "What is the projected workforce demand for Q3?",
+        "category": "workforce",
+        "relevanceScore": 0.80
+      },
+      {
+        "text": "Which projects are most affected by the structural engineering shortage?",
+        "category": "workforce",
+        "relevanceScore": 0.79
+      },
+      {
+        "text": "Show me the audit schedule for the next 6 months",
+        "category": "compliance",
+        "relevanceScore": 0.78
+      },
+      {
+        "text": "Which projects have the highest compliance risk?",
+        "category": "compliance",
+        "relevanceScore": 0.77
+      },
+      {
+        "text": "What corrective actions are planned for Lausanne Residential?",
+        "category": "management",
+        "relevanceScore": 0.76
+      },
+      {
+        "text": "Show me the Lausanne Residential project details and escalation history",
+        "category": "management",
+        "relevanceScore": 0.75
+      }
+    ]
+  },
+  {
+    "personaId": "persona-elena",
+    "suggestions": [
+      {
+        "text": "Show me the detailed cost breakdown and variance analysis for active projects",
+        "category": "finance",
+        "relevanceScore": 0.98
+      },
+      {
+        "text": "What projects are at risk of exceeding their approved budget?",
+        "category": "finance",
+        "relevanceScore": 0.97
+      },
+      {
+        "text": "Show me the procurement pipeline and supplier performance metrics",
+        "category": "procurement",
+        "relevanceScore": 0.95
+      },
+      {
+        "text": "What is the current status of interim valuations and payment certifications?",
+        "category": "finance",
+        "relevanceScore": 0.94
+      },
+      {
+        "text": "Show me quantity variances and measurement discrepancies across active projects",
+        "category": "analysis",
+        "relevanceScore": 0.93
+      },
+      {
+        "text": "What is the current subcontractor cost status and outstanding claims?",
+        "category": "procurement",
+        "relevanceScore": 0.92
+      },
+      {
+        "text": "Which specific materials are driving the cost increase?",
+        "category": "finance",
+        "relevanceScore": 0.90
+      },
+      {
+        "text": "Compare unit rates against industry benchmarks",
+        "category": "analysis",
+        "relevanceScore": 0.89
+      },
+      {
+        "text": "What is the projected final cost at completion?",
+        "category": "finance",
+        "relevanceScore": 0.88
+      },
+      {
+        "text": "What change orders are driving the Lausanne Residential overrun?",
+        "category": "finance",
+        "relevanceScore": 0.87
+      },
+      {
+        "text": "Can we reallocate contingency from Basel to cover the overruns?",
+        "category": "finance",
+        "relevanceScore": 0.86
+      },
+      {
+        "text": "Generate a budget exception report for management approval",
+        "category": "reporting",
+        "relevanceScore": 0.85
+      },
+      {
+        "text": "What is causing the Steelworks AG delivery delays?",
+        "category": "procurement",
+        "relevanceScore": 0.84
+      },
+      {
+        "text": "Which suppliers have the best on-time delivery rates?",
+        "category": "procurement",
+        "relevanceScore": 0.83
+      },
+      {
+        "text": "Are there alternative suppliers for structural steel?",
+        "category": "procurement",
+        "relevanceScore": 0.82
+      },
+      {
+        "text": "What is the dispute on the Bern Data Center valuation about?",
+        "category": "finance",
+        "relevanceScore": 0.81
+      },
+      {
+        "text": "What is the projected cash inflow for the next 30 days?",
+        "category": "finance",
+        "relevanceScore": 0.80
+      },
+      {
+        "text": "What caused the excavation overrun at Lausanne Residential?",
+        "category": "analysis",
+        "relevanceScore": 0.79
+      },
+      {
+        "text": "What is the total cost impact of all quantity variances?",
+        "category": "analysis",
+        "relevanceScore": 0.78
+      },
+      {
+        "text": "Show me the full details of the TechInstall GmbH claim",
+        "category": "procurement",
+        "relevanceScore": 0.77
+      }
+    ]
+  },
+  {
+    "personaId": "persona-sophie",
+    "suggestions": [
+      {
+        "text": "Show me the critical path and upcoming milestones for my projects",
+        "category": "schedule",
+        "relevanceScore": 0.98
+      },
+      {
+        "text": "What are the top schedule risks and potential delay impacts on my projects?",
+        "category": "risk",
+        "relevanceScore": 0.97
+      },
+      {
+        "text": "Show me current resource allocation and any conflicts across my project teams",
+        "category": "workforce",
+        "relevanceScore": 0.95
+      },
+      {
+        "text": "What is the overall progress and earned value status of my projects?",
+        "category": "reporting",
+        "relevanceScore": 0.94
+      },
+      {
+        "text": "Show me pending stakeholder action items and recent communication summaries",
+        "category": "management",
+        "relevanceScore": 0.93
+      },
+      {
+        "text": "What is the current quality status and any outstanding non-conformances?",
+        "category": "compliance",
+        "relevanceScore": 0.92
+      },
+      {
+        "text": "What activities are on the critical path for Zurich Tower?",
+        "category": "schedule",
+        "relevanceScore": 0.90
+      },
+      {
+        "text": "How can we recover the 8-day delay on Geneva MEP rough-in?",
+        "category": "schedule",
+        "relevanceScore": 0.89
+      },
+      {
+        "text": "Show me the look-ahead schedule for the next 2 weeks",
+        "category": "schedule",
+        "relevanceScore": 0.88
+      },
+      {
+        "text": "What float is available on non-critical activities?",
+        "category": "schedule",
+        "relevanceScore": 0.87
+      },
+      {
+        "text": "Run a what-if scenario: what if steel delivery is delayed by 3 weeks?",
+        "category": "risk",
+        "relevanceScore": 0.86
+      },
+      {
+        "text": "Show me the Lausanne Residential recovery schedule options",
+        "category": "schedule",
+        "relevanceScore": 0.85
+      },
+      {
+        "text": "What is the cost of accelerating the Geneva MEP works?",
+        "category": "finance",
+        "relevanceScore": 0.84
+      },
+      {
+        "text": "Who can deputize for P. Moreau during the concrete pour?",
+        "category": "workforce",
+        "relevanceScore": 0.83
+      },
+      {
+        "text": "Show me the resource histogram for the next 4 weeks",
+        "category": "workforce",
+        "relevanceScore": 0.82
+      },
+      {
+        "text": "What is driving the low SPI on Lausanne Residential?",
+        "category": "reporting",
+        "relevanceScore": 0.81
+      },
+      {
+        "text": "Show me the S-curve for Zurich Tower Renovation",
+        "category": "reporting",
+        "relevanceScore": 0.80
+      },
+      {
+        "text": "What work packages are behind schedule on Geneva Office Complex?",
+        "category": "schedule",
+        "relevanceScore": 0.79
+      },
+      {
+        "text": "Forecast the completion date based on current performance trends",
+        "category": "reporting",
+        "relevanceScore": 0.78
+      },
+      {
+        "text": "What is the root cause analysis for the Lausanne waterproofing issues?",
+        "category": "compliance",
+        "relevanceScore": 0.77
+      }
+    ]
+  },
+  {
+    "personaId": "persona-james",
+    "suggestions": [
+      {
+        "text": "Show me the current sales pipeline and deal progression status",
+        "category": "sales",
+        "relevanceScore": 0.98
+      },
+      {
+        "text": "What are the key client health scores and engagement trends?",
+        "category": "sales",
+        "relevanceScore": 0.97
+      },
+      {
+        "text": "Show me the latest market trends and competitor activity in our sectors",
+        "category": "analysis",
+        "relevanceScore": 0.95
+      },
+      {
+        "text": "What is the status of active proposals and upcoming bid deadlines?",
+        "category": "sales",
+        "relevanceScore": 0.94
+      },
+      {
+        "text": "Show me the revenue forecast and progress against quarterly targets",
+        "category": "finance",
+        "relevanceScore": 0.93
+      },
+      {
+        "text": "What is the status of strategic partnerships and joint venture opportunities?",
+        "category": "sales",
+        "relevanceScore": 0.92
+      },
+      {
+        "text": "What are the key decision criteria for the Munich Airport deal?",
+        "category": "sales",
+        "relevanceScore": 0.90
+      },
+      {
+        "text": "Show me the competitive landscape for the Milan Metro opportunity",
+        "category": "analysis",
+        "relevanceScore": 0.89
+      },
+      {
+        "text": "Which deals are at risk of slipping from this quarter?",
+        "category": "sales",
+        "relevanceScore": 0.88
+      },
+      {
+        "text": "Compare our win rate by sector and deal size",
+        "category": "analysis",
+        "relevanceScore": 0.87
+      },
+      {
+        "text": "What is causing the decline in Klinikum Stuttgart engagement?",
+        "category": "sales",
+        "relevanceScore": 0.86
+      },
+      {
+        "text": "Schedule a relationship review meeting with Wien Holding AG",
+        "category": "sales",
+        "relevanceScore": 0.85
+      },
+      {
+        "text": "What cross-sell opportunities exist with Flughafen München?",
+        "category": "sales",
+        "relevanceScore": 0.84
+      },
+      {
+        "text": "How should we position against Arcadis in the data center market?",
+        "category": "analysis",
+        "relevanceScore": 0.83
+      },
+      {
+        "text": "What partnerships could strengthen our bid for the Swiss Rail program?",
+        "category": "sales",
+        "relevanceScore": 0.82
+      },
+      {
+        "text": "What sections are still outstanding on the Milan Metro proposal?",
+        "category": "sales",
+        "relevanceScore": 0.81
+      },
+      {
+        "text": "What deals need to close to hit the Q3 target?",
+        "category": "finance",
+        "relevanceScore": 0.80
+      },
+      {
+        "text": "Why is healthcare revenue 12% below target?",
+        "category": "finance",
+        "relevanceScore": 0.79
+      },
+      {
+        "text": "Show me the Implenia JV performance details and upcoming bids",
+        "category": "sales",
+        "relevanceScore": 0.78
+      },
+      {
+        "text": "What is the strategic rationale for the engineering firm acquisition?",
+        "category": "analysis",
+        "relevanceScore": 0.77
+      }
+    ]
+  }
+]

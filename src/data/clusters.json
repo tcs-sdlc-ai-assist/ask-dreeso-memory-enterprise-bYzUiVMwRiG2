@@ -1,0 +1,242 @@
+[
+  {
+    "id": "cluster-strategic-oversight",
+    "personaId": "persona-lukas",
+    "label": "Strategic Oversight",
+    "description": "High-level project portfolio health, milestone tracking, and strategic alignment across all active projects.",
+    "icon": "eye",
+    "queryTemplate": "Show me the current status and strategic alignment of all active projects",
+    "category": "management",
+    "priority": 1
+  },
+  {
+    "id": "cluster-budget-control",
+    "personaId": "persona-lukas",
+    "label": "Budget Control",
+    "description": "Budget utilization, cost variance analysis, and financial forecasting across the project portfolio.",
+    "icon": "wallet",
+    "queryTemplate": "What is the current budget utilization and cost variance across all projects?",
+    "category": "finance",
+    "priority": 2
+  },
+  {
+    "id": "cluster-risk-management",
+    "personaId": "persona-lukas",
+    "label": "Risk Management",
+    "description": "Identification, assessment, and mitigation tracking of project risks and organizational threats.",
+    "icon": "shield",
+    "queryTemplate": "What are the top risks across the portfolio and their mitigation status?",
+    "category": "risk",
+    "priority": 3
+  },
+  {
+    "id": "cluster-executive-reporting",
+    "personaId": "persona-lukas",
+    "label": "Executive Reporting",
+    "description": "Consolidated executive dashboards, KPI summaries, and board-ready project performance reports.",
+    "icon": "chart-bar",
+    "queryTemplate": "Generate an executive summary of project performance for this quarter",
+    "category": "reporting",
+    "priority": 4
+  },
+  {
+    "id": "cluster-workforce-oversight",
+    "personaId": "persona-lukas",
+    "label": "Workforce Oversight",
+    "description": "Team capacity planning, resource allocation efficiency, and workforce utilization metrics.",
+    "icon": "users",
+    "queryTemplate": "Show me current workforce utilization and capacity gaps across projects",
+    "category": "workforce",
+    "priority": 5
+  },
+  {
+    "id": "cluster-compliance-governance",
+    "personaId": "persona-lukas",
+    "label": "Compliance & Governance",
+    "description": "Regulatory compliance status, audit readiness, and governance policy adherence across projects.",
+    "icon": "clipboard-check",
+    "queryTemplate": "What is the current compliance and governance status across the portfolio?",
+    "category": "compliance",
+    "priority": 6
+  },
+  {
+    "id": "cluster-cost-analysis",
+    "personaId": "persona-elena",
+    "label": "Cost Analysis",
+    "description": "Detailed cost breakdowns, unit rate comparisons, and cost trend analysis across project elements.",
+    "icon": "calculator",
+    "queryTemplate": "Show me the detailed cost breakdown and variance analysis for active projects",
+    "category": "finance",
+    "priority": 1
+  },
+  {
+    "id": "cluster-elena-budget-control",
+    "personaId": "persona-elena",
+    "label": "Budget Monitoring",
+    "description": "Real-time budget tracking, expenditure forecasting, and early warning alerts for cost overruns.",
+    "icon": "trending-up",
+    "queryTemplate": "What projects are at risk of exceeding their approved budget?",
+    "category": "finance",
+    "priority": 2
+  },
+  {
+    "id": "cluster-procurement",
+    "personaId": "persona-elena",
+    "label": "Procurement Intelligence",
+    "description": "Supplier performance tracking, procurement pipeline status, and material cost benchmarking.",
+    "icon": "truck",
+    "queryTemplate": "Show me the procurement pipeline and supplier performance metrics",
+    "category": "procurement",
+    "priority": 3
+  },
+  {
+    "id": "cluster-valuation-tracking",
+    "personaId": "persona-elena",
+    "label": "Valuation Tracking",
+    "description": "Interim valuation progress, payment certification status, and cash flow projections.",
+    "icon": "file-text",
+    "queryTemplate": "What is the current status of interim valuations and payment certifications?",
+    "category": "finance",
+    "priority": 4
+  },
+  {
+    "id": "cluster-quantity-benchmarking",
+    "personaId": "persona-elena",
+    "label": "Quantity Benchmarking",
+    "description": "Bill of quantities analysis, measurement verification, and quantity variance tracking.",
+    "icon": "layers",
+    "queryTemplate": "Show me quantity variances and measurement discrepancies across active projects",
+    "category": "analysis",
+    "priority": 5
+  },
+  {
+    "id": "cluster-subcontractor-costs",
+    "personaId": "persona-elena",
+    "label": "Subcontractor Costs",
+    "description": "Subcontractor cost tracking, claim management, and performance-based cost assessments.",
+    "icon": "briefcase",
+    "queryTemplate": "What is the current subcontractor cost status and outstanding claims?",
+    "category": "procurement",
+    "priority": 6
+  },
+  {
+    "id": "cluster-schedule-management",
+    "personaId": "persona-sophie",
+    "label": "Schedule Management",
+    "description": "Project timeline tracking, critical path analysis, and milestone completion monitoring.",
+    "icon": "calendar",
+    "queryTemplate": "Show me the critical path and upcoming milestones for my projects",
+    "category": "schedule",
+    "priority": 1
+  },
+  {
+    "id": "cluster-sophie-risk-management",
+    "personaId": "persona-sophie",
+    "label": "Schedule Risk Analysis",
+    "description": "Schedule risk identification, delay impact assessment, and contingency planning recommendations.",
+    "icon": "alert-triangle",
+    "queryTemplate": "What are the top schedule risks and potential delay impacts on my projects?",
+    "category": "risk",
+    "priority": 2
+  },
+  {
+    "id": "cluster-resource-allocation",
+    "personaId": "persona-sophie",
+    "label": "Resource Allocation",
+    "description": "Team member assignments, workload balancing, and resource conflict resolution across tasks.",
+    "icon": "user-check",
+    "queryTemplate": "Show me current resource allocation and any conflicts across my project teams",
+    "category": "workforce",
+    "priority": 3
+  },
+  {
+    "id": "cluster-progress-tracking",
+    "personaId": "persona-sophie",
+    "label": "Progress Tracking",
+    "description": "Task completion rates, earned value metrics, and work package progress visualization.",
+    "icon": "bar-chart",
+    "queryTemplate": "What is the overall progress and earned value status of my projects?",
+    "category": "reporting",
+    "priority": 4
+  },
+  {
+    "id": "cluster-stakeholder-comms",
+    "personaId": "persona-sophie",
+    "label": "Stakeholder Communications",
+    "description": "Stakeholder engagement tracking, communication logs, and action item follow-ups.",
+    "icon": "message-circle",
+    "queryTemplate": "Show me pending stakeholder action items and recent communication summaries",
+    "category": "management",
+    "priority": 5
+  },
+  {
+    "id": "cluster-quality-control",
+    "personaId": "persona-sophie",
+    "label": "Quality Control",
+    "description": "Quality inspection results, non-conformance tracking, and quality assurance compliance.",
+    "icon": "check-circle",
+    "queryTemplate": "What is the current quality status and any outstanding non-conformances?",
+    "category": "compliance",
+    "priority": 6
+  },
+  {
+    "id": "cluster-sales-pipeline",
+    "personaId": "persona-james",
+    "label": "Sales Pipeline",
+    "description": "Opportunity tracking, pipeline value analysis, and deal stage progression monitoring.",
+    "icon": "funnel",
+    "queryTemplate": "Show me the current sales pipeline and deal progression status",
+    "category": "sales",
+    "priority": 1
+  },
+  {
+    "id": "cluster-client-insights",
+    "personaId": "persona-james",
+    "label": "Client Insights",
+    "description": "Client relationship health scores, engagement history, and account growth opportunities.",
+    "icon": "heart",
+    "queryTemplate": "What are the key client health scores and engagement trends?",
+    "category": "sales",
+    "priority": 2
+  },
+  {
+    "id": "cluster-market-intelligence",
+    "personaId": "persona-james",
+    "label": "Market Intelligence",
+    "description": "Market trend analysis, competitor activity tracking, and sector opportunity identification.",
+    "icon": "globe",
+    "queryTemplate": "Show me the latest market trends and competitor activity in our sectors",
+    "category": "analysis",
+    "priority": 3
+  },
+  {
+    "id": "cluster-proposal-tracking",
+    "personaId": "persona-james",
+    "label": "Proposal Tracking",
+    "description": "Active proposal status, win/loss analysis, and bid submission deadline management.",
+    "icon": "send",
+    "queryTemplate": "What is the status of active proposals and upcoming bid deadlines?",
+    "category": "sales",
+    "priority": 4
+  },
+  {
+    "id": "cluster-revenue-forecasting",
+    "personaId": "persona-james",
+    "label": "Revenue Forecasting",
+    "description": "Revenue projection models, booking forecasts, and quarterly target tracking.",
+    "icon": "dollar-sign",
+    "queryTemplate": "Show me the revenue forecast and progress against quarterly targets",
+    "category": "finance",
+    "priority": 5
+  },
+  {
+    "id": "cluster-partnership-development",
+    "personaId": "persona-james",
+    "label": "Partnership Development",
+    "description": "Strategic partnership pipeline, joint venture opportunities, and alliance performance metrics.",
+    "icon": "handshake",
+    "queryTemplate": "What is the status of strategic partnerships and joint venture opportunities?",
+    "category": "sales",
+    "priority": 6
+  }
+]

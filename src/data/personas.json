@@ -1,0 +1,86 @@
+[
+  {
+    "id": "persona-lukas",
+    "name": "Lukas Müller",
+    "role": "Project Director",
+    "avatarInitials": "LM",
+    "colorTheme": "#3bcd7e",
+    "permissions": [
+      "view_all_projects",
+      "manage_projects",
+      "approve_budgets",
+      "view_reports",
+      "manage_team",
+      "access_intelligence"
+    ],
+    "clusterIds": [
+      "cluster-strategic-oversight",
+      "cluster-budget-control",
+      "cluster-risk-management",
+      "cluster-executive-reporting"
+    ]
+  },
+  {
+    "id": "persona-elena",
+    "name": "Elena Rossi",
+    "role": "Senior Quantity Surveyor",
+    "avatarInitials": "ER",
+    "colorTheme": "#276ef1",
+    "permissions": [
+      "view_all_projects",
+      "manage_costs",
+      "view_reports",
+      "submit_valuations",
+      "access_intelligence",
+      "manage_quantities"
+    ],
+    "clusterIds": [
+      "cluster-cost-analysis",
+      "cluster-budget-control",
+      "cluster-procurement",
+      "cluster-valuation-tracking"
+    ]
+  },
+  {
+    "id": "persona-sophie",
+    "name": "Sophie Dubois",
+    "role": "Project Manager",
+    "avatarInitials": "SD",
+    "colorTheme": "#ffc043",
+    "permissions": [
+      "view_assigned_projects",
+      "manage_tasks",
+      "view_reports",
+      "manage_schedule",
+      "access_intelligence",
+      "manage_team"
+    ],
+    "clusterIds": [
+      "cluster-schedule-management",
+      "cluster-risk-management",
+      "cluster-resource-allocation",
+      "cluster-progress-tracking"
+    ]
+  },
+  {
+    "id": "persona-james",
+    "name": "James Carter",
+    "role": "Sales Director",
+    "avatarInitials": "JC",
+    "colorTheme": "#e11900",
+    "permissions": [
+      "view_pipeline",
+      "manage_proposals",
+      "view_reports",
+      "access_intelligence",
+      "manage_clients",
+      "view_market_data"
+    ],
+    "clusterIds": [
+      "cluster-sales-pipeline",
+      "cluster-client-insights",
+      "cluster-market-intelligence",
+      "cluster-proposal-tracking"
+    ]
+  }
+]

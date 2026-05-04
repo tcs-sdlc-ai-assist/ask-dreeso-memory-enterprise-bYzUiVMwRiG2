@@ -1,0 +1,1228 @@
+[
+  {
+    "queryId": "query-lukas-strategic-001",
+    "personaId": "persona-lukas",
+    "clusterId": "cluster-strategic-oversight",
+    "queryText": "Show me the current status and strategic alignment of all active projects",
+    "response": {
+      "title": "Active Projects — Strategic Overview",
+      "summary": "There are 12 active projects across the portfolio. 9 are on track with strategic objectives, 2 have minor deviations requiring attention, and 1 is flagged for executive review due to scope realignment.",
+      "dataTables": [
+        {
+          "tableId": "table-strategic-projects",
+          "title": "Project Portfolio Status",
+          "columns": ["Project", "Phase", "Strategic Alignment", "Status", "Health"],
+          "rows": [
+            ["Zurich Tower Renovation", "Execution", "Digital Transformation", "On Track", "Green"],
+            ["Basel Logistics Hub", "Planning", "Market Expansion", "On Track", "Green"],
+            ["Geneva Office Complex", "Execution", "Sustainability", "Minor Deviation", "Amber"],
+            ["Bern Data Center", "Initiation", "Digital Transformation", "On Track", "Green"],
+            ["Lausanne Residential", "Execution", "Market Expansion", "Flagged", "Red"],
+            ["Lucerne Bridge Retrofit", "Execution", "Infrastructure Renewal", "On Track", "Green"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-strategic-alignment",
+          "type": "donut",
+          "title": "Strategic Alignment Distribution",
+          "data": [
+            { "label": "Digital Transformation", "value": 4 },
+            { "label": "Market Expansion", "value": 3 },
+            { "label": "Sustainability", "value": 3 },
+            { "label": "Infrastructure Renewal", "value": 2 }
+          ]
+        },
+        {
+          "chartId": "chart-project-health",
+          "type": "bar",
+          "title": "Project Health Overview",
+          "data": [
+            { "label": "Green", "value": 9 },
+            { "label": "Amber", "value": 2 },
+            { "label": "Red", "value": 1 }
+          ]
+        }
+      ],
+      "sourceSystems": ["SAP Project Systems", "Primavera P6", "Strategic Planning Portal"],
+      "ctaBubbles": [
+        "Which projects have the highest strategic impact score?",
+        "Show me the Lausanne Residential project details and escalation history",
+        "What milestones are due in the next 30 days?",
+        "Compare project health trends over the last quarter"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-lukas-budget-001",
+    "personaId": "persona-lukas",
+    "clusterId": "cluster-budget-control",
+    "queryText": "What is the current budget utilization and cost variance across all projects?",
+    "response": {
+      "title": "Portfolio Budget Utilization & Cost Variance",
+      "summary": "Total portfolio budget stands at CHF 248M with 62% utilized to date. Overall cost variance is +1.8% above baseline. Two projects — Geneva Office Complex and Lausanne Residential — account for 78% of the total variance.",
+      "dataTables": [
+        {
+          "tableId": "table-budget-overview",
+          "title": "Budget Utilization by Project",
+          "columns": ["Project", "Budget (CHF M)", "Spent (CHF M)", "Utilization %", "Variance %"],
+          "rows": [
+            ["Zurich Tower Renovation", "45.0", "28.3", "62.9%", "+0.5%"],
+            ["Basel Logistics Hub", "38.0", "8.2", "21.6%", "-0.3%"],
+            ["Geneva Office Complex", "52.0", "36.8", "70.8%", "+3.2%"],
+            ["Bern Data Center", "30.0", "4.5", "15.0%", "0.0%"],
+            ["Lausanne Residential", "48.0", "39.6", "82.5%", "+4.1%"],
+            ["Lucerne Bridge Retrofit", "35.0", "22.1", "63.1%", "+0.2%"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-budget-utilization",
+          "type": "bar",
+          "title": "Budget Utilization by Project",
+          "data": [
+            { "label": "Zurich Tower", "value": 62.9 },
+            { "label": "Basel Hub", "value": 21.6 },
+            { "label": "Geneva Office", "value": 70.8 },
+            { "label": "Bern DC", "value": 15.0 },
+            { "label": "Lausanne Res.", "value": 82.5 },
+            { "label": "Lucerne Bridge", "value": 63.1 }
+          ]
+        },
+        {
+          "chartId": "chart-cost-variance-trend",
+          "type": "line",
+          "title": "Portfolio Cost Variance Trend (Monthly)",
+          "data": [
+            { "label": "Jan", "value": 0.3 },
+            { "label": "Feb", "value": 0.5 },
+            { "label": "Mar", "value": 0.9 },
+            { "label": "Apr", "value": 1.1 },
+            { "label": "May", "value": 1.4 },
+            { "label": "Jun", "value": 1.8 }
+          ]
+        }
+      ],
+      "sourceSystems": ["SAP Finance", "Oracle ERP", "Cost Control Module"],
+      "ctaBubbles": [
+        "Drill into the Geneva Office Complex cost overrun",
+        "What corrective actions are planned for Lausanne Residential?",
+        "Show me the cash flow forecast for Q3",
+        "Which cost categories are driving the variance?"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-lukas-risk-001",
+    "personaId": "persona-lukas",
+    "clusterId": "cluster-risk-management",
+    "queryText": "What are the top risks across the portfolio and their mitigation status?",
+    "response": {
+      "title": "Portfolio Risk Register — Top Risks",
+      "summary": "14 active high-priority risks identified across the portfolio. 8 have approved mitigation plans in progress, 4 are pending review, and 2 are newly escalated this week. Supply chain disruption and regulatory changes remain the top systemic risks.",
+      "dataTables": [
+        {
+          "tableId": "table-risk-register",
+          "title": "Top Portfolio Risks",
+          "columns": ["Risk ID", "Project", "Description", "Impact", "Probability", "Mitigation Status"],
+          "rows": [
+            ["R-001", "Geneva Office Complex", "Steel supply chain delay — 6 week lead time increase", "High", "High", "In Progress"],
+            ["R-002", "Lausanne Residential", "Planning permit appeal from adjacent landowner", "Critical", "Medium", "Pending Review"],
+            ["R-003", "Zurich Tower Renovation", "Asbestos discovery in floors 8-12", "High", "High", "In Progress"],
+            ["R-004", "Basel Logistics Hub", "Zoning regulation change pending cantonal vote", "High", "Medium", "Pending Review"],
+            ["R-005", "Lucerne Bridge Retrofit", "Unexpected foundation condition — additional piling required", "Medium", "High", "In Progress"],
+            ["R-006", "Bern Data Center", "Power grid connection approval delayed by utility provider", "High", "Low", "New"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-risk-matrix",
+          "type": "donut",
+          "title": "Risk Distribution by Status",
+          "data": [
+            { "label": "In Progress", "value": 8 },
+            { "label": "Pending Review", "value": 4 },
+            { "label": "New", "value": 2 }
+          ]
+        }
+      ],
+      "sourceSystems": ["Risk Management System", "Primavera P6", "Compliance Tracker"],
+      "ctaBubbles": [
+        "Show me the full mitigation plan for the Geneva steel supply risk",
+        "What is the financial exposure of the top 5 risks?",
+        "Which risks have been escalated in the last 7 days?",
+        "Generate a risk summary report for the board"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-lukas-reporting-001",
+    "personaId": "persona-lukas",
+    "clusterId": "cluster-executive-reporting",
+    "queryText": "Generate an executive summary of project performance for this quarter",
+    "response": {
+      "title": "Q2 2024 Executive Performance Summary",
+      "summary": "Portfolio performance is broadly positive with an overall SPI of 0.96 and CPI of 0.98. Revenue recognition is on target at CHF 64.2M against a Q2 plan of CHF 66.0M (97.3%). Three projects achieved milestone completions ahead of schedule. Key concerns remain around the Lausanne Residential timeline and Geneva Office Complex cost trajectory.",
+      "dataTables": [
+        {
+          "tableId": "table-exec-kpis",
+          "title": "Key Performance Indicators — Q2 2024",
+          "columns": ["KPI", "Target", "Actual", "Status"],
+          "rows": [
+            ["Schedule Performance Index (SPI)", "1.00", "0.96", "Amber"],
+            ["Cost Performance Index (CPI)", "1.00", "0.98", "Amber"],
+            ["Revenue Recognition (CHF M)", "66.0", "64.2", "Amber"],
+            ["Client Satisfaction Score", "4.2/5.0", "4.4/5.0", "Green"],
+            ["Safety Incident Rate (TRIR)", "< 0.5", "0.32", "Green"],
+            ["Change Order Rate", "< 5%", "3.8%", "Green"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-quarterly-performance",
+          "type": "bar",
+          "title": "Quarterly Performance Comparison",
+          "data": [
+            { "label": "Q1 SPI", "value": 0.98 },
+            { "label": "Q2 SPI", "value": 0.96 },
+            { "label": "Q1 CPI", "value": 1.01 },
+            { "label": "Q2 CPI", "value": 0.98 }
+          ]
+        }
+      ],
+      "sourceSystems": ["SAP Project Systems", "Power BI Dashboards", "HR Safety Module"],
+      "ctaBubbles": [
+        "Break down performance by individual project",
+        "What drove the SPI decline from Q1 to Q2?",
+        "Show me the client satisfaction trend over the last 4 quarters",
+        "Export this summary as a PDF for the board meeting"
+      ]
+    },
+    "actionable": false
+  },
+  {
+    "queryId": "query-lukas-workforce-001",
+    "personaId": "persona-lukas",
+    "clusterId": "cluster-workforce-oversight",
+    "queryText": "Show me current workforce utilization and capacity gaps across projects",
+    "response": {
+      "title": "Workforce Utilization & Capacity Analysis",
+      "summary": "Total workforce across the portfolio is 342 FTEs with an average utilization rate of 87%. Structural engineering and MEP disciplines are at 95%+ utilization, indicating capacity constraints. 18 open positions remain unfilled with an average time-to-fill of 34 days.",
+      "dataTables": [
+        {
+          "tableId": "table-workforce-utilization",
+          "title": "Utilization by Discipline",
+          "columns": ["Discipline", "Headcount", "Utilization %", "Open Positions", "Capacity Status"],
+          "rows": [
+            ["Structural Engineering", "48", "97%", "5", "Critical"],
+            ["MEP Engineering", "36", "95%", "4", "Critical"],
+            ["Architecture & Design", "42", "88%", "2", "Adequate"],
+            ["Project Management", "28", "91%", "3", "Tight"],
+            ["Quantity Surveying", "24", "84%", "1", "Adequate"],
+            ["Site Supervision", "56", "82%", "3", "Adequate"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-utilization-by-discipline",
+          "type": "bar",
+          "title": "Utilization Rate by Discipline",
+          "data": [
+            { "label": "Structural", "value": 97 },
+            { "label": "MEP", "value": 95 },
+            { "label": "PM", "value": 91 },
+            { "label": "Architecture", "value": 88 },
+            { "label": "QS", "value": 84 },
+            { "label": "Site Supervision", "value": 82 }
+          ]
+        }
+      ],
+      "sourceSystems": ["SAP HCM", "Resource Planning Tool", "Recruitment Portal"],
+      "ctaBubbles": [
+        "Which projects are most affected by the structural engineering shortage?",
+        "Show me the recruitment pipeline for MEP engineers",
+        "What is the projected workforce demand for Q3?",
+        "Identify team members available for reallocation"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-lukas-compliance-001",
+    "personaId": "persona-lukas",
+    "clusterId": "cluster-compliance-governance",
+    "queryText": "What is the current compliance and governance status across the portfolio?",
+    "response": {
+      "title": "Compliance & Governance Dashboard",
+      "summary": "Overall compliance score is 94.2%. All projects have current ISO 9001 and ISO 14001 certifications. Two governance actions are overdue: the Basel Logistics Hub environmental impact reassessment and the Lausanne Residential community engagement report. Next external audit is scheduled for August 15.",
+      "dataTables": [
+        {
+          "tableId": "table-compliance-status",
+          "title": "Compliance Status by Project",
+          "columns": ["Project", "ISO 9001", "ISO 14001", "Safety Compliance", "Regulatory", "Overall Score"],
+          "rows": [
+            ["Zurich Tower Renovation", "Current", "Current", "100%", "Compliant", "96%"],
+            ["Basel Logistics Hub", "Current", "Current", "98%", "Action Required", "89%"],
+            ["Geneva Office Complex", "Current", "Current", "100%", "Compliant", "95%"],
+            ["Bern Data Center", "Current", "Current", "100%", "Compliant", "97%"],
+            ["Lausanne Residential", "Current", "Current", "96%", "Action Required", "88%"],
+            ["Lucerne Bridge Retrofit", "Current", "Current", "100%", "Compliant", "96%"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-compliance-scores",
+          "type": "bar",
+          "title": "Compliance Scores by Project",
+          "data": [
+            { "label": "Zurich Tower", "value": 96 },
+            { "label": "Basel Hub", "value": 89 },
+            { "label": "Geneva Office", "value": 95 },
+            { "label": "Bern DC", "value": 97 },
+            { "label": "Lausanne Res.", "value": 88 },
+            { "label": "Lucerne Bridge", "value": 96 }
+          ]
+        }
+      ],
+      "sourceSystems": ["Compliance Management System", "Audit Tracker", "Regulatory Portal"],
+      "ctaBubbles": [
+        "What are the overdue governance actions and their owners?",
+        "Show me the audit schedule for the next 6 months",
+        "Which projects have the highest compliance risk?",
+        "Generate a compliance report for the external auditors"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-elena-cost-001",
+    "personaId": "persona-elena",
+    "clusterId": "cluster-cost-analysis",
+    "queryText": "Show me the detailed cost breakdown and variance analysis for active projects",
+    "response": {
+      "title": "Detailed Cost Breakdown & Variance Analysis",
+      "summary": "Across all active projects, total committed costs are CHF 156.8M against a budget of CHF 248M. Material costs are trending 3.2% above estimates driven by steel and concrete price increases. Labour costs are within 0.8% of budget. Preliminary and general costs show the largest positive variance at +5.1% on the Geneva Office Complex.",
+      "dataTables": [
+        {
+          "tableId": "table-cost-breakdown",
+          "title": "Cost Breakdown by Category (CHF M)",
+          "columns": ["Category", "Budget", "Committed", "Spent", "Forecast", "Variance %"],
+          "rows": [
+            ["Materials", "82.4", "54.6", "48.2", "85.0", "+3.2%"],
+            ["Labour", "68.0", "43.8", "39.1", "68.5", "+0.8%"],
+            ["Subcontractors", "52.0", "33.2", "28.4", "53.8", "+3.5%"],
+            ["Plant & Equipment", "22.6", "14.8", "12.6", "22.9", "+1.3%"],
+            ["Preliminaries & General", "15.0", "10.4", "9.2", "15.8", "+5.1%"],
+            ["Contingency", "8.0", "0.0", "0.0", "4.2", "-47.5%"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-cost-distribution",
+          "type": "donut",
+          "title": "Cost Distribution by Category",
+          "data": [
+            { "label": "Materials", "value": 82.4 },
+            { "label": "Labour", "value": 68.0 },
+            { "label": "Subcontractors", "value": 52.0 },
+            { "label": "Plant & Equipment", "value": 22.6 },
+            { "label": "Preliminaries", "value": 15.0 },
+            { "label": "Contingency", "value": 8.0 }
+          ]
+        },
+        {
+          "chartId": "chart-variance-by-category",
+          "type": "bar",
+          "title": "Cost Variance by Category (%)",
+          "data": [
+            { "label": "Materials", "value": 3.2 },
+            { "label": "Labour", "value": 0.8 },
+            { "label": "Subcontractors", "value": 3.5 },
+            { "label": "Plant & Equip.", "value": 1.3 },
+            { "label": "Preliminaries", "value": 5.1 }
+          ]
+        }
+      ],
+      "sourceSystems": ["SAP Finance", "Cost Control Module", "Procurement System"],
+      "ctaBubbles": [
+        "Which specific materials are driving the 3.2% cost increase?",
+        "Show me the Geneva Office Complex preliminaries breakdown",
+        "Compare unit rates against industry benchmarks",
+        "What is the projected final cost at completion?"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-elena-budget-001",
+    "personaId": "persona-elena",
+    "clusterId": "cluster-elena-budget-control",
+    "queryText": "What projects are at risk of exceeding their approved budget?",
+    "response": {
+      "title": "Budget Overrun Risk Assessment",
+      "summary": "Two projects are at high risk of exceeding approved budgets. Lausanne Residential is forecast to exceed by CHF 2.8M (5.8%) due to foundation redesign and material escalation. Geneva Office Complex is forecast to exceed by CHF 1.9M (3.7%) driven by MEP scope changes and preliminary cost overruns.",
+      "dataTables": [
+        {
+          "tableId": "table-budget-risk",
+          "title": "Budget Risk Assessment",
+          "columns": ["Project", "Approved Budget (CHF M)", "Forecast (CHF M)", "Variance (CHF M)", "Variance %", "Risk Level"],
+          "rows": [
+            ["Lausanne Residential", "48.0", "50.8", "+2.8", "+5.8%", "High"],
+            ["Geneva Office Complex", "52.0", "53.9", "+1.9", "+3.7%", "High"],
+            ["Lucerne Bridge Retrofit", "35.0", "35.4", "+0.4", "+1.1%", "Medium"],
+            ["Zurich Tower Renovation", "45.0", "45.2", "+0.2", "+0.4%", "Low"],
+            ["Basel Logistics Hub", "38.0", "37.8", "-0.2", "-0.5%", "Low"],
+            ["Bern Data Center", "30.0", "29.8", "-0.2", "-0.7%", "Low"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-budget-variance",
+          "type": "bar",
+          "title": "Budget Variance by Project (CHF M)",
+          "data": [
+            { "label": "Lausanne Res.", "value": 2.8 },
+            { "label": "Geneva Office", "value": 1.9 },
+            { "label": "Lucerne Bridge", "value": 0.4 },
+            { "label": "Zurich Tower", "value": 0.2 },
+            { "label": "Basel Hub", "value": -0.2 },
+            { "label": "Bern DC", "value": -0.2 }
+          ]
+        }
+      ],
+      "sourceSystems": ["SAP Finance", "Cost Control Module", "Change Order Register"],
+      "ctaBubbles": [
+        "What change orders are driving the Lausanne Residential overrun?",
+        "Show me the Geneva Office Complex MEP scope change details",
+        "Can we reallocate contingency from Basel to cover the overruns?",
+        "Generate a budget exception report for management approval"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-elena-procurement-001",
+    "personaId": "persona-elena",
+    "clusterId": "cluster-procurement",
+    "queryText": "Show me the procurement pipeline and supplier performance metrics",
+    "response": {
+      "title": "Procurement Pipeline & Supplier Performance",
+      "summary": "42 active procurement packages across the portfolio with a total value of CHF 89.4M. 28 are awarded and in delivery, 8 are in tender evaluation, and 6 are in preparation. Top supplier Steelworks AG has a performance score of 92/100 but is experiencing 2-week delivery delays on structural steel.",
+      "dataTables": [
+        {
+          "tableId": "table-procurement-pipeline",
+          "title": "Procurement Pipeline Summary",
+          "columns": ["Package", "Project", "Value (CHF M)", "Status", "Supplier", "Performance Score"],
+          "rows": [
+            ["Structural Steel — Phase 2", "Zurich Tower Renovation", "8.4", "In Delivery", "Steelworks AG", "92"],
+            ["MEP Installation", "Geneva Office Complex", "12.6", "In Delivery", "TechInstall GmbH", "88"],
+            ["Concrete Supply", "Lausanne Residential", "6.2", "In Delivery", "BetonMix SA", "95"],
+            ["Façade Systems", "Basel Logistics Hub", "9.8", "Tender Evaluation", "—", "—"],
+            ["Electrical Fit-out", "Bern Data Center", "4.5", "Tender Evaluation", "—", "—"],
+            ["Bridge Bearings", "Lucerne Bridge Retrofit", "2.1", "In Delivery", "BridgeTech Ltd", "90"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-procurement-status",
+          "type": "donut",
+          "title": "Procurement Status Distribution",
+          "data": [
+            { "label": "In Delivery", "value": 28 },
+            { "label": "Tender Evaluation", "value": 8 },
+            { "label": "Preparation", "value": 6 }
+          ]
+        }
+      ],
+      "sourceSystems": ["Procurement System", "Supplier Management Portal", "SAP MM"],
+      "ctaBubbles": [
+        "What is causing the Steelworks AG delivery delays?",
+        "Show me the tender evaluation results for the façade systems package",
+        "Which suppliers have the best on-time delivery rates?",
+        "Are there alternative suppliers for structural steel?"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-elena-valuation-001",
+    "personaId": "persona-elena",
+    "clusterId": "cluster-valuation-tracking",
+    "queryText": "What is the current status of interim valuations and payment certifications?",
+    "response": {
+      "title": "Interim Valuations & Payment Certifications",
+      "summary": "6 interim valuations are currently in process with a combined value of CHF 18.7M. 3 have been certified and are awaiting payment, 2 are under QS review, and 1 is disputed by the contractor. Average payment cycle is 28 days against a contractual target of 30 days.",
+      "dataTables": [
+        {
+          "tableId": "table-valuations",
+          "title": "Interim Valuation Status",
+          "columns": ["Valuation Ref", "Project", "Period", "Value (CHF M)", "Status", "Days Outstanding"],
+          "rows": [
+            ["IPC-ZT-012", "Zurich Tower Renovation", "Jun 2024", "4.2", "Certified — Awaiting Payment", "12"],
+            ["IPC-GO-008", "Geneva Office Complex", "Jun 2024", "5.1", "Certified — Awaiting Payment", "8"],
+            ["IPC-LR-006", "Lausanne Residential", "Jun 2024", "3.8", "Under QS Review", "5"],
+            ["IPC-LB-009", "Lucerne Bridge Retrofit", "Jun 2024", "2.4", "Certified — Awaiting Payment", "15"],
+            ["IPC-BL-004", "Basel Logistics Hub", "Jun 2024", "1.9", "Under QS Review", "3"],
+            ["IPC-BD-002", "Bern Data Center", "Jun 2024", "1.3", "Disputed", "22"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-valuation-status",
+          "type": "donut",
+          "title": "Valuation Status Breakdown",
+          "data": [
+            { "label": "Certified — Awaiting Payment", "value": 3 },
+            { "label": "Under QS Review", "value": 2 },
+            { "label": "Disputed", "value": 1 }
+          ]
+        },
+        {
+          "chartId": "chart-payment-cycle",
+          "type": "line",
+          "title": "Average Payment Cycle (Days) — Last 6 Months",
+          "data": [
+            { "label": "Jan", "value": 32 },
+            { "label": "Feb", "value": 30 },
+            { "label": "Mar", "value": 29 },
+            { "label": "Apr", "value": 27 },
+            { "label": "May", "value": 28 },
+            { "label": "Jun", "value": 28 }
+          ]
+        }
+      ],
+      "sourceSystems": ["Valuation Management System", "SAP Finance", "Contract Administration"],
+      "ctaBubbles": [
+        "What is the dispute on the Bern Data Center valuation about?",
+        "Show me the detailed measurement breakdown for Lausanne Residential IPC-LR-006",
+        "What is the projected cash inflow for the next 30 days?",
+        "Generate a payment certification summary for finance"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-elena-quantity-001",
+    "personaId": "persona-elena",
+    "clusterId": "cluster-quantity-benchmarking",
+    "queryText": "Show me quantity variances and measurement discrepancies across active projects",
+    "response": {
+      "title": "Quantity Variance & Measurement Analysis",
+      "summary": "Quantity variances have been identified in 4 of 6 active projects. The most significant variance is in Lausanne Residential where excavation quantities exceeded the BoQ by 18.4% due to unforeseen ground conditions. Concrete quantities across the portfolio are trending 2.1% above estimates.",
+      "dataTables": [
+        {
+          "tableId": "table-quantity-variances",
+          "title": "Significant Quantity Variances",
+          "columns": ["Project", "Element", "BoQ Quantity", "Measured Quantity", "Variance %", "Cost Impact (CHF K)"],
+          "rows": [
+            ["Lausanne Residential", "Excavation (m³)", "12,400", "14,682", "+18.4%", "+342"],
+            ["Geneva Office Complex", "Structural Concrete (m³)", "8,200", "8,520", "+3.9%", "+128"],
+            ["Zurich Tower Renovation", "Demolition (m²)", "3,600", "3,840", "+6.7%", "+86"],
+            ["Lucerne Bridge Retrofit", "Reinforcement Steel (t)", "420", "438", "+4.3%", "+72"],
+            ["Basel Logistics Hub", "Piling (lin. m)", "2,800", "2,780", "-0.7%", "-14"],
+            ["Bern Data Center", "Floor Slab (m²)", "4,500", "4,510", "+0.2%", "+4"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-quantity-variance",
+          "type": "bar",
+          "title": "Quantity Variance by Project (%)",
+          "data": [
+            { "label": "Lausanne Res.", "value": 18.4 },
+            { "label": "Zurich Tower", "value": 6.7 },
+            { "label": "Lucerne Bridge", "value": 4.3 },
+            { "label": "Geneva Office", "value": 3.9 },
+            { "label": "Bern DC", "value": 0.2 },
+            { "label": "Basel Hub", "value": -0.7 }
+          ]
+        }
+      ],
+      "sourceSystems": ["Quantity Surveying System", "BIM Model", "Site Measurement Records"],
+      "ctaBubbles": [
+        "What caused the excavation overrun at Lausanne Residential?",
+        "Compare our concrete unit rates against market benchmarks",
+        "Show me the remeasurement log for Zurich Tower demolition works",
+        "What is the total cost impact of all quantity variances?"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-elena-subcontractor-001",
+    "personaId": "persona-elena",
+    "clusterId": "cluster-subcontractor-costs",
+    "queryText": "What is the current subcontractor cost status and outstanding claims?",
+    "response": {
+      "title": "Subcontractor Cost Status & Claims Register",
+      "summary": "Total subcontractor commitments across the portfolio are CHF 52.0M with CHF 33.2M certified to date. There are 7 outstanding claims totalling CHF 3.4M. The largest claim (CHF 1.2M) is from TechInstall GmbH on the Geneva Office Complex for alleged scope variations in the MEP installation.",
+      "dataTables": [
+        {
+          "tableId": "table-subcontractor-claims",
+          "title": "Outstanding Subcontractor Claims",
+          "columns": ["Claim Ref", "Subcontractor", "Project", "Claim Value (CHF K)", "Category", "Status"],
+          "rows": [
+            ["CLM-GO-003", "TechInstall GmbH", "Geneva Office Complex", "1,200", "Scope Variation", "Under Review"],
+            ["CLM-LR-005", "FoundationPro AG", "Lausanne Residential", "680", "Ground Conditions", "Negotiation"],
+            ["CLM-ZT-007", "DemoWorks SA", "Zurich Tower Renovation", "420", "Delay Claim", "Under Review"],
+            ["CLM-LB-002", "BridgeTech Ltd", "Lucerne Bridge Retrofit", "380", "Material Escalation", "Partially Agreed"],
+            ["CLM-BL-001", "PileDriver GmbH", "Basel Logistics Hub", "340", "Variation", "Under Review"],
+            ["CLM-LR-006", "ElectriFit SA", "Lausanne Residential", "220", "Disruption", "Negotiation"],
+            ["CLM-BD-001", "CoolSystems AG", "Bern Data Center", "160", "Scope Variation", "New"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-claims-by-category",
+          "type": "donut",
+          "title": "Claims by Category",
+          "data": [
+            { "label": "Scope Variation", "value": 3 },
+            { "label": "Ground Conditions", "value": 1 },
+            { "label": "Delay Claim", "value": 1 },
+            { "label": "Material Escalation", "value": 1 },
+            { "label": "Disruption", "value": 1 }
+          ]
+        }
+      ],
+      "sourceSystems": ["Contract Administration", "Claims Register", "SAP Finance"],
+      "ctaBubbles": [
+        "Show me the full details of the TechInstall GmbH claim",
+        "What is our contractual position on the FoundationPro ground conditions claim?",
+        "How do current claims compare to the same period last year?",
+        "Generate a claims exposure report for the project directors"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-sophie-schedule-001",
+    "personaId": "persona-sophie",
+    "clusterId": "cluster-schedule-management",
+    "queryText": "Show me the critical path and upcoming milestones for my projects",
+    "response": {
+      "title": "Critical Path & Milestone Tracker",
+      "summary": "You have 3 active projects with 14 milestones due in the next 60 days. The critical path on the Zurich Tower Renovation runs through the façade installation sequence — any delay here directly impacts the completion date. Two milestones are at risk: the Geneva Office Complex MEP rough-in and the Lausanne Residential structural completion.",
+      "dataTables": [
+        {
+          "tableId": "table-milestones",
+          "title": "Upcoming Milestones (Next 60 Days)",
+          "columns": ["Milestone", "Project", "Planned Date", "Forecast Date", "Variance (Days)", "Status"],
+          "rows": [
+            ["Façade Installation Start", "Zurich Tower Renovation", "2024-07-15", "2024-07-15", "0", "On Track"],
+            ["MEP Rough-in Complete", "Geneva Office Complex", "2024-07-22", "2024-07-30", "+8", "At Risk"],
+            ["Structural Completion", "Lausanne Residential", "2024-07-28", "2024-08-05", "+8", "At Risk"],
+            ["Roof Waterproofing", "Zurich Tower Renovation", "2024-08-01", "2024-08-01", "0", "On Track"],
+            ["Interior Fit-out Start", "Geneva Office Complex", "2024-08-10", "2024-08-10", "0", "On Track"],
+            ["Landscaping Phase 1", "Lausanne Residential", "2024-08-20", "2024-08-28", "+8", "At Risk"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-milestone-status",
+          "type": "donut",
+          "title": "Milestone Status Distribution",
+          "data": [
+            { "label": "On Track", "value": 9 },
+            { "label": "At Risk", "value": 4 },
+            { "label": "Delayed", "value": 1 }
+          ]
+        }
+      ],
+      "sourceSystems": ["Primavera P6", "Microsoft Project", "BIM 4D Schedule"],
+      "ctaBubbles": [
+        "What activities are on the critical path for Zurich Tower?",
+        "How can we recover the 8-day delay on Geneva MEP rough-in?",
+        "Show me the look-ahead schedule for the next 2 weeks",
+        "What float is available on non-critical activities?"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-sophie-risk-001",
+    "personaId": "persona-sophie",
+    "clusterId": "cluster-sophie-risk-management",
+    "queryText": "What are the top schedule risks and potential delay impacts on my projects?",
+    "response": {
+      "title": "Schedule Risk Analysis — Your Projects",
+      "summary": "Monte Carlo simulation indicates a 68% probability of completing the Zurich Tower Renovation within the contractual deadline. The Geneva Office Complex has a 72% probability, while Lausanne Residential has dropped to 54%. Key risk drivers are MEP coordination delays, material delivery uncertainties, and weather contingency consumption.",
+      "dataTables": [
+        {
+          "tableId": "table-schedule-risks",
+          "title": "Top Schedule Risks",
+          "columns": ["Risk", "Project", "Potential Delay (Days)", "Probability", "Impact on Completion", "Mitigation"],
+          "rows": [
+            ["MEP coordination clash resolution", "Geneva Office Complex", "12", "High", "Direct", "Additional coordination meetings scheduled"],
+            ["Steel delivery delay — Steelworks AG", "Zurich Tower Renovation", "10", "Medium", "Critical Path", "Alternative supplier identified"],
+            ["Foundation redesign approval", "Lausanne Residential", "15", "High", "Direct", "Expedited review requested"],
+            ["Weather days — remaining contingency low", "Lausanne Residential", "8", "Medium", "Indirect", "Weekend working plan prepared"],
+            ["Subcontractor resource availability", "Geneva Office Complex", "6", "Medium", "Near-Critical", "Backup subcontractor on standby"],
+            ["Permit inspection scheduling", "Zurich Tower Renovation", "5", "Low", "Critical Path", "Pre-booked inspection slots"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-completion-probability",
+          "type": "bar",
+          "title": "On-Time Completion Probability (%)",
+          "data": [
+            { "label": "Geneva Office", "value": 72 },
+            { "label": "Zurich Tower", "value": 68 },
+            { "label": "Lausanne Res.", "value": 54 }
+          ]
+        }
+      ],
+      "sourceSystems": ["Primavera Risk Analysis", "Schedule Risk Register", "Weather Service API"],
+      "ctaBubbles": [
+        "Run a what-if scenario: what if steel delivery is delayed by 3 weeks?",
+        "Show me the Lausanne Residential recovery schedule options",
+        "What is the cost of accelerating the Geneva MEP works?",
+        "Compare current risk profile against last month's assessment"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-sophie-resource-001",
+    "personaId": "persona-sophie",
+    "clusterId": "cluster-resource-allocation",
+    "queryText": "Show me current resource allocation and any conflicts across my project teams",
+    "response": {
+      "title": "Resource Allocation & Conflict Analysis",
+      "summary": "Your projects have 128 team members allocated across 3 projects. There are 4 resource conflicts identified: 2 structural engineers and 1 MEP coordinator are double-booked between Zurich Tower and Geneva Office Complex next week. Additionally, the site manager for Lausanne Residential has flagged a leave conflict during a critical concrete pour.",
+      "dataTables": [
+        {
+          "tableId": "table-resource-conflicts",
+          "title": "Resource Conflicts",
+          "columns": ["Team Member", "Role", "Project A", "Project B", "Conflict Period", "Resolution"],
+          "rows": [
+            ["M. Weber", "Senior Structural Engineer", "Zurich Tower Renovation", "Geneva Office Complex", "Jul 15-19", "Pending"],
+            ["A. Fischer", "Structural Engineer", "Zurich Tower Renovation", "Geneva Office Complex", "Jul 15-22", "Pending"],
+            ["K. Brunner", "MEP Coordinator", "Geneva Office Complex", "Zurich Tower Renovation", "Jul 17-19", "Pending"],
+            ["P. Moreau", "Site Manager", "Lausanne Residential", "Annual Leave", "Jul 25-29", "Deputy assigned"]
+          ]
+        },
+        {
+          "tableId": "table-team-allocation",
+          "title": "Team Allocation Summary",
+          "columns": ["Project", "Total Team", "Full-time", "Shared", "Utilization %"],
+          "rows": [
+            ["Zurich Tower Renovation", "52", "44", "8", "91%"],
+            ["Geneva Office Complex", "48", "40", "8", "88%"],
+            ["Lausanne Residential", "28", "26", "2", "85%"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-team-allocation",
+          "type": "bar",
+          "title": "Team Size by Project",
+          "data": [
+            { "label": "Zurich Tower", "value": 52 },
+            { "label": "Geneva Office", "value": 48 },
+            { "label": "Lausanne Res.", "value": 28 }
+          ]
+        }
+      ],
+      "sourceSystems": ["Resource Planning Tool", "SAP HCM", "Project Scheduling System"],
+      "ctaBubbles": [
+        "Resolve the structural engineer conflict — prioritize Zurich Tower",
+        "Who can deputize for P. Moreau during the concrete pour?",
+        "Show me the resource histogram for the next 4 weeks",
+        "Are there any upcoming resource gaps I should plan for?"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-sophie-progress-001",
+    "personaId": "persona-sophie",
+    "clusterId": "cluster-progress-tracking",
+    "queryText": "What is the overall progress and earned value status of my projects?",
+    "response": {
+      "title": "Project Progress & Earned Value Analysis",
+      "summary": "Combined earned value across your 3 projects shows an SPI of 0.94 and CPI of 0.97. Zurich Tower Renovation is performing best with SPI 0.98. Lausanne Residential is the most behind schedule with SPI 0.88. Overall physical progress is 58.3% against a planned 61.7%.",
+      "dataTables": [
+        {
+          "tableId": "table-earned-value",
+          "title": "Earned Value Metrics",
+          "columns": ["Project", "Planned %", "Actual %", "SPI", "CPI", "EAC (CHF M)", "VAC (CHF M)"],
+          "rows": [
+            ["Zurich Tower Renovation", "64.0%", "62.7%", "0.98", "0.99", "45.5", "-0.5"],
+            ["Geneva Office Complex", "68.5%", "65.2%", "0.95", "0.96", "54.2", "-2.2"],
+            ["Lausanne Residential", "52.5%", "46.2%", "0.88", "0.94", "51.1", "-3.1"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-spi-cpi",
+          "type": "bar",
+          "title": "SPI vs CPI by Project",
+          "data": [
+            { "label": "Zurich SPI", "value": 0.98 },
+            { "label": "Zurich CPI", "value": 0.99 },
+            { "label": "Geneva SPI", "value": 0.95 },
+            { "label": "Geneva CPI", "value": 0.96 },
+            { "label": "Lausanne SPI", "value": 0.88 },
+            { "label": "Lausanne CPI", "value": 0.94 }
+          ]
+        },
+        {
+          "chartId": "chart-progress-trend",
+          "type": "line",
+          "title": "Combined Progress — Planned vs Actual (%)",
+          "data": [
+            { "label": "Jan", "planned": 22.0, "actual": 21.5 },
+            { "label": "Feb", "planned": 30.0, "actual": 29.2 },
+            { "label": "Mar", "planned": 38.5, "actual": 37.0 },
+            { "label": "Apr", "planned": 46.0, "actual": 44.1 },
+            { "label": "May", "planned": 54.0, "actual": 51.8 },
+            { "label": "Jun", "planned": 61.7, "actual": 58.3 }
+          ]
+        }
+      ],
+      "sourceSystems": ["Primavera P6", "Earned Value Module", "Progress Reporting System"],
+      "ctaBubbles": [
+        "What is driving the low SPI on Lausanne Residential?",
+        "Show me the S-curve for Zurich Tower Renovation",
+        "What work packages are behind schedule on Geneva Office Complex?",
+        "Forecast the completion date based on current performance trends"
+      ]
+    },
+    "actionable": false
+  },
+  {
+    "queryId": "query-sophie-stakeholder-001",
+    "personaId": "persona-sophie",
+    "clusterId": "cluster-stakeholder-comms",
+    "queryText": "Show me pending stakeholder action items and recent communication summaries",
+    "response": {
+      "title": "Stakeholder Communications & Action Items",
+      "summary": "There are 11 pending action items across your projects. 4 are overdue, including a client design approval for Geneva Office Complex (5 days overdue) and a regulatory submission for Lausanne Residential (3 days overdue). Last week saw 8 stakeholder meetings with 23 new action items generated.",
+      "dataTables": [
+        {
+          "tableId": "table-action-items",
+          "title": "Overdue & Priority Action Items",
+          "columns": ["Action Item", "Project", "Owner", "Due Date", "Days Overdue", "Priority"],
+          "rows": [
+            ["Client approval — Level 5 design revision", "Geneva Office Complex", "Client Rep (M. Laurent)", "2024-07-08", "5", "Critical"],
+            ["Submit environmental monitoring report", "Lausanne Residential", "S. Dubois", "2024-07-10", "3", "High"],
+            ["Confirm utility connection schedule", "Bern Data Center", "Utility Provider", "2024-07-11", "2", "High"],
+            ["Review and sign variation order VO-014", "Zurich Tower Renovation", "Client QS", "2024-07-12", "1", "Medium"],
+            ["Provide updated traffic management plan", "Lucerne Bridge Retrofit", "Traffic Authority", "2024-07-15", "—", "High"],
+            ["Schedule community liaison meeting", "Lausanne Residential", "S. Dubois", "2024-07-18", "—", "Medium"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-action-items-status",
+          "type": "donut",
+          "title": "Action Item Status",
+          "data": [
+            { "label": "Overdue", "value": 4 },
+            { "label": "Due This Week", "value": 3 },
+            { "label": "Upcoming", "value": 4 }
+          ]
+        }
+      ],
+      "sourceSystems": ["Stakeholder Management System", "Meeting Minutes Database", "Email Integration"],
+      "ctaBubbles": [
+        "Send a reminder to M. Laurent about the design approval",
+        "Show me the meeting minutes from last week's Geneva client meeting",
+        "What decisions are pending from the Lausanne Residential steering committee?",
+        "Draft a stakeholder update email for all project sponsors"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-sophie-quality-001",
+    "personaId": "persona-sophie",
+    "clusterId": "cluster-quality-control",
+    "queryText": "What is the current quality status and any outstanding non-conformances?",
+    "response": {
+      "title": "Quality Status & Non-Conformance Report",
+      "summary": "Quality inspection pass rate across your projects is 94.6%. There are 8 open non-conformance reports (NCRs): 3 on Geneva Office Complex (concrete cover deficiency), 3 on Lausanne Residential (waterproofing application), and 2 on Zurich Tower Renovation (fire stopping). All NCRs have corrective actions assigned with target closure within 14 days.",
+      "dataTables": [
+        {
+          "tableId": "table-ncr-register",
+          "title": "Open Non-Conformance Reports",
+          "columns": ["NCR Ref", "Project", "Description", "Severity", "Corrective Action", "Target Close Date"],
+          "rows": [
+            ["NCR-GO-018", "Geneva Office Complex", "Concrete cover < spec on Level 3 columns", "Major", "Remedial coating application", "2024-07-22"],
+            ["NCR-GO-019", "Geneva Office Complex", "Concrete cover < spec on Level 4 beams", "Major", "Remedial coating application", "2024-07-22"],
+            ["NCR-GO-020", "Geneva Office Complex", "Rebar spacing non-compliant — stairwell", "Minor", "Rework and re-inspect", "2024-07-18"],
+            ["NCR-LR-012", "Lausanne Residential", "Waterproofing membrane overlap insufficient", "Major", "Strip and re-apply", "2024-07-25"],
+            ["NCR-LR-013", "Lausanne Residential", "Waterproofing primer not applied to substrate", "Major", "Full re-application", "2024-07-25"],
+            ["NCR-LR-014", "Lausanne Residential", "Drainage channel gradient incorrect", "Minor", "Re-grade and test", "2024-07-20"],
+            ["NCR-ZT-009", "Zurich Tower Renovation", "Fire stopping incomplete at floor penetrations", "Major", "Complete fire stopping installation", "2024-07-19"],
+            ["NCR-ZT-010", "Zurich Tower Renovation", "Fire door frame seal missing", "Minor", "Install seals", "2024-07-17"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-quality-pass-rate",
+          "type": "bar",
+          "title": "Quality Inspection Pass Rate by Project (%)",
+          "data": [
+            { "label": "Zurich Tower", "value": 96.2 },
+            { "label": "Geneva Office", "value": 92.8 },
+            { "label": "Lausanne Res.", "value": 94.1 }
+          ]
+        }
+      ],
+      "sourceSystems": ["Quality Management System", "Inspection Database", "BIM Quality Checker"],
+      "ctaBubbles": [
+        "Show me photos and details for the Geneva concrete cover NCRs",
+        "What is the root cause analysis for the Lausanne waterproofing issues?",
+        "Schedule a quality review meeting for all open major NCRs",
+        "What is the trend in NCR rates over the last 6 months?"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-james-pipeline-001",
+    "personaId": "persona-james",
+    "clusterId": "cluster-sales-pipeline",
+    "queryText": "Show me the current sales pipeline and deal progression status",
+    "response": {
+      "title": "Sales Pipeline Overview",
+      "summary": "The current pipeline contains 34 opportunities with a total weighted value of CHF 186M. 6 deals are in the final negotiation stage worth CHF 42M. Pipeline velocity has improved 12% this quarter with an average deal cycle of 94 days. Win rate year-to-date is 38%, up from 32% last year.",
+      "dataTables": [
+        {
+          "tableId": "table-pipeline",
+          "title": "Top Pipeline Opportunities",
+          "columns": ["Opportunity", "Client", "Value (CHF M)", "Stage", "Probability %", "Expected Close"],
+          "rows": [
+            ["Munich Airport Terminal Extension", "Flughafen München GmbH", "28.5", "Final Negotiation", "80%", "2024-08-15"],
+            ["Vienna Smart Campus", "Wien Holding AG", "18.2", "Final Negotiation", "75%", "2024-08-30"],
+            ["Frankfurt Logistics Park", "DHL Real Estate", "15.8", "Proposal Submitted", "60%", "2024-09-15"],
+            ["Zurich Waterfront Development", "City of Zurich", "42.0", "Qualification", "35%", "2024-11-30"],
+            ["Milan Metro Line Extension", "ATM Milano", "35.0", "Proposal Submitted", "55%", "2024-10-15"],
+            ["Stuttgart Hospital Modernization", "Klinikum Stuttgart", "22.4", "Final Negotiation", "70%", "2024-08-22"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-pipeline-by-stage",
+          "type": "donut",
+          "title": "Pipeline by Stage (CHF M)",
+          "data": [
+            { "label": "Qualification", "value": 62 },
+            { "label": "Proposal Submitted", "value": 48 },
+            { "label": "Evaluation", "value": 34 },
+            { "label": "Final Negotiation", "value": 42 }
+          ]
+        },
+        {
+          "chartId": "chart-pipeline-trend",
+          "type": "line",
+          "title": "Pipeline Value Trend (CHF M)",
+          "data": [
+            { "label": "Jan", "value": 142 },
+            { "label": "Feb", "value": 155 },
+            { "label": "Mar", "value": 148 },
+            { "label": "Apr", "value": 168 },
+            { "label": "May", "value": 175 },
+            { "label": "Jun", "value": 186 }
+          ]
+        }
+      ],
+      "sourceSystems": ["CRM System", "Bid Management Platform", "Revenue Analytics"],
+      "ctaBubbles": [
+        "What are the key decision criteria for the Munich Airport deal?",
+        "Show me the competitive landscape for the Milan Metro opportunity",
+        "Which deals are at risk of slipping from this quarter?",
+        "Compare our win rate by sector and deal size"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-james-client-001",
+    "personaId": "persona-james",
+    "clusterId": "cluster-client-insights",
+    "queryText": "What are the key client health scores and engagement trends?",
+    "response": {
+      "title": "Client Health & Engagement Dashboard",
+      "summary": "Monitoring 18 key accounts with an average health score of 7.8/10. Three accounts show declining engagement: Klinikum Stuttgart (down from 8.2 to 6.9), ATM Milano (down from 7.5 to 6.8), and Wien Holding AG (down from 8.0 to 7.2). Top-performing relationship is with Flughafen München GmbH at 9.4/10.",
+      "dataTables": [
+        {
+          "tableId": "table-client-health",
+          "title": "Key Account Health Scores",
+          "columns": ["Client", "Health Score", "Trend", "Last Engagement", "Active Projects", "Pipeline Value (CHF M)"],
+          "rows": [
+            ["Flughafen München GmbH", "9.4", "↑ Improving", "2024-07-10", "2", "28.5"],
+            ["City of Zurich", "8.8", "→ Stable", "2024-07-08", "3", "42.0"],
+            ["DHL Real Estate", "8.5", "→ Stable", "2024-07-05", "1", "15.8"],
+            ["Wien Holding AG", "7.2", "↓ Declining", "2024-06-20", "0", "18.2"],
+            ["Klinikum Stuttgart", "6.9", "↓ Declining", "2024-06-15", "0", "22.4"],
+            ["ATM Milano", "6.8", "↓ Declining", "2024-06-18", "0", "35.0"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-health-distribution",
+          "type": "bar",
+          "title": "Client Health Score Distribution",
+          "data": [
+            { "label": "9-10 (Excellent)", "value": 3 },
+            { "label": "8-9 (Good)", "value": 6 },
+            { "label": "7-8 (Fair)", "value": 5 },
+            { "label": "6-7 (At Risk)", "value": 3 },
+            { "label": "< 6 (Critical)", "value": 1 }
+          ]
+        }
+      ],
+      "sourceSystems": ["CRM System", "Client Engagement Tracker", "NPS Survey Platform"],
+      "ctaBubbles": [
+        "What is causing the decline in Klinikum Stuttgart engagement?",
+        "Schedule a relationship review meeting with Wien Holding AG",
+        "Show me the NPS scores and feedback from our top 5 clients",
+        "What cross-sell opportunities exist with Flughafen München?"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-james-market-001",
+    "personaId": "persona-james",
+    "clusterId": "cluster-market-intelligence",
+    "queryText": "Show me the latest market trends and competitor activity in our sectors",
+    "response": {
+      "title": "Market Intelligence Briefing",
+      "summary": "The European construction market is projected to grow 2.8% in 2024, driven by infrastructure investment and sustainability mandates. Key competitors Arcadis and WSP have both announced expansion into the DACH data center market. Three major public tenders worth CHF 120M+ are expected in Q3 across transport infrastructure and healthcare sectors.",
+      "dataTables": [
+        {
+          "tableId": "table-market-opportunities",
+          "title": "Upcoming Market Opportunities",
+          "columns": ["Opportunity", "Sector", "Estimated Value (CHF M)", "Expected Tender Date", "Region", "Competitive Intensity"],
+          "rows": [
+            ["Swiss Federal Rail — Station Modernization Program", "Transport", "85.0", "2024-08-01", "Switzerland", "High"],
+            ["Bavaria State Hospital Network Upgrade", "Healthcare", "62.0", "2024-09-15", "Germany", "Medium"],
+            ["Austrian Motorway Expansion — A1 Corridor", "Infrastructure", "120.0", "2024-08-20", "Austria", "High"],
+            ["Milan Expo District — Phase 2", "Mixed Use", "95.0", "2024-10-01", "Italy", "Medium"],
+            ["Geneva International Organizations Campus", "Commercial", "45.0", "2024-09-01", "Switzerland", "Low"]
+          ]
+        },
+        {
+          "tableId": "table-competitor-activity",
+          "title": "Recent Competitor Activity",
+          "columns": ["Competitor", "Activity", "Sector", "Region", "Impact Assessment"],
+          "rows": [
+            ["Arcadis", "Opened new data center practice in Zurich", "Data Centers", "DACH", "High — direct competition"],
+            ["WSP", "Acquired local firm in Munich — 200 staff", "Multi-sector", "Germany", "Medium — increased capacity"],
+            ["Arup", "Won Vienna metro extension design contract", "Transport", "Austria", "Low — different segment"],
+            ["Mott MacDonald", "Partnered with local firm for Swiss rail bids", "Transport", "Switzerland", "High — joint venture threat"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-market-growth",
+          "type": "bar",
+          "title": "Sector Growth Forecast 2024 (%)",
+          "data": [
+            { "label": "Data Centers", "value": 8.2 },
+            { "label": "Healthcare", "value": 4.5 },
+            { "label": "Transport", "value": 3.8 },
+            { "label": "Commercial", "value": 2.1 },
+            { "label": "Residential", "value": 1.4 }
+          ]
+        }
+      ],
+      "sourceSystems": ["Market Intelligence Platform", "Competitor Tracker", "Industry Publications API"],
+      "ctaBubbles": [
+        "How should we position against Arcadis in the data center market?",
+        "Show me our track record in transport infrastructure projects",
+        "What partnerships could strengthen our bid for the Swiss Rail program?",
+        "Analyze our competitive win rate against WSP and Arcadis"
+      ]
+    },
+    "actionable": false
+  },
+  {
+    "queryId": "query-james-proposal-001",
+    "personaId": "persona-james",
+    "clusterId": "cluster-proposal-tracking",
+    "queryText": "What is the status of active proposals and upcoming bid deadlines?",
+    "response": {
+      "title": "Active Proposals & Bid Deadline Tracker",
+      "summary": "There are 9 active proposals with a combined value of CHF 198M. 3 proposals have deadlines within the next 14 days. The Milan Metro Line Extension proposal (CHF 35M) is due in 5 days and the technical section is 85% complete. Win probability assessment indicates strong positioning on 6 of 9 active bids.",
+      "dataTables": [
+        {
+          "tableId": "table-active-proposals",
+          "title": "Active Proposals",
+          "columns": ["Proposal", "Client", "Value (CHF M)", "Deadline", "Completion %", "Win Probability"],
+          "rows": [
+            ["Milan Metro Line Extension", "ATM Milano", "35.0", "2024-07-18", "85%", "55%"],
+            ["Frankfurt Logistics Park", "DHL Real Estate", "15.8", "2024-07-25", "72%", "60%"],
+            ["Stuttgart Hospital Modernization", "Klinikum Stuttgart", "22.4", "2024-07-28", "68%", "70%"],
+            ["Zurich Waterfront Development", "City of Zurich", "42.0", "2024-08-30", "35%", "35%"],
+            ["Munich Airport Terminal Extension", "Flughafen München GmbH", "28.5", "Submitted", "100%", "80%"],
+            ["Vienna Smart Campus", "Wien Holding AG", "18.2", "Submitted", "100%", "75%"],
+            ["Basel Pharma Campus", "Novartis AG", "14.5", "2024-09-15", "20%", "45%"],
+            ["Innsbruck Convention Center", "City of Innsbruck", "12.0", "2024-09-30", "15%", "50%"],
+            ["Lyon Transit Hub", "Métropole de Lyon", "9.8", "2024-10-15", "10%", "40%"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-proposal-timeline",
+          "type": "bar",
+          "title": "Proposal Completion Status (%)",
+          "data": [
+            { "label": "Munich Airport", "value": 100 },
+            { "label": "Vienna Campus", "value": 100 },
+            { "label": "Milan Metro", "value": 85 },
+            { "label": "Frankfurt Logistics", "value": 72 },
+            { "label": "Stuttgart Hospital", "value": 68 },
+            { "label": "Zurich Waterfront", "value": 35 }
+          ]
+        }
+      ],
+      "sourceSystems": ["Bid Management Platform", "CRM System", "Document Management"],
+      "ctaBubbles": [
+        "What sections are still outstanding on the Milan Metro proposal?",
+        "Show me the resource plan for completing the Frankfurt Logistics bid",
+        "What feedback did we receive on the Munich Airport submission?",
+        "Compare our pricing against competitor benchmarks for Stuttgart Hospital"
+      ]
+    },
+    "actionable": true
+  },
+  {
+    "queryId": "query-james-revenue-001",
+    "personaId": "persona-james",
+    "clusterId": "cluster-revenue-forecasting",
+    "queryText": "Show me the revenue forecast and progress against quarterly targets",
+    "response": {
+      "title": "Revenue Forecast & Target Tracking",
+      "summary": "Year-to-date revenue is CHF 124.8M against a target of CHF 130.0M (96.0%). Q3 forecast shows CHF 68.5M against a target of CHF 72.0M, with the gap primarily driven by delayed contract awards on two major opportunities. Full-year forecast is CHF 268M against a target of CHF 280M (95.7%).",
+      "dataTables": [
+        {
+          "tableId": "table-revenue-tracking",
+          "title": "Revenue Performance by Quarter (CHF M)",
+          "columns": ["Quarter", "Target", "Actual/Forecast", "Variance", "Variance %", "Status"],
+          "rows": [
+            ["Q1 2024", "62.0", "61.2", "-0.8", "-1.3%", "Achieved"],
+            ["Q2 2024", "68.0", "63.6", "-4.4", "-6.5%", "Below Target"],
+            ["Q3 2024 (Forecast)", "72.0", "68.5", "-3.5", "-4.9%", "At Risk"],
+            ["Q4 2024 (Forecast)", "78.0", "74.7", "-3.3", "-4.2%", "Projected"]
+          ]
+        },
+        {
+          "tableId": "table-revenue-by-sector",
+          "title": "Revenue by Sector (CHF M) — YTD",
+          "columns": ["Sector", "Target", "Actual", "Variance %"],
+          "rows": [
+            ["Commercial & Office", "42.0", "41.2", "-1.9%"],
+            ["Infrastructure", "35.0", "33.8", "-3.4%"],
+            ["Residential", "28.0", "27.4", "-2.1%"],
+            ["Healthcare", "15.0", "13.2", "-12.0%"],
+            ["Data Centers", "10.0", "9.2", "-8.0%"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-revenue-forecast",
+          "type": "line",
+          "title": "Monthly Revenue — Actual vs Target (CHF M)",
+          "data": [
+            { "label": "Jan", "target": 20.0, "actual": 19.8 },
+            { "label": "Feb", "target": 20.5, "actual": 20.2 },
+            { "label": "Mar", "target": 21.5, "actual": 21.2 },
+            { "label": "Apr", "target": 22.0, "actual": 20.8 },
+            { "label": "May", "target": 23.0, "actual": 21.6 },
+            { "label": "Jun", "target": 23.0, "actual": 21.2 }
+          ]
+        }
+      ],
+      "sourceSystems": ["SAP Finance", "Revenue Analytics", "CRM System"],
+      "ctaBubbles": [
+        "What deals need to close to hit the Q3 target?",
+        "Why is healthcare revenue 12% below target?",
+        "Show me the revenue bridge from target to forecast",
+        "What is the impact of the delayed contract awards on full-year revenue?"
+      ]
+    },
+    "actionable": false
+  },
+  {
+    "queryId": "query-james-partnership-001",
+    "personaId": "persona-james",
+    "clusterId": "cluster-partnership-development",
+    "queryText": "What is the status of strategic partnerships and joint venture opportunities?",
+    "response": {
+      "title": "Strategic Partnerships & Joint Ventures",
+      "summary": "There are 5 active partnership discussions and 2 established joint ventures. The JV with Implenia for Swiss rail projects is performing well with CHF 18M in joint revenue YTD. A new partnership with Siemens Smart Infrastructure for data center projects is in advanced negotiation with an MOU expected by end of July.",
+      "dataTables": [
+        {
+          "tableId": "table-partnerships",
+          "title": "Partnership & JV Status",
+          "columns": ["Partner", "Type", "Focus Area", "Status", "Value Potential (CHF M)", "Next Milestone"],
+          "rows": [
+            ["Implenia AG", "Joint Venture", "Swiss Rail Infrastructure", "Active — Performing", "45.0", "Q3 bid submission"],
+            ["Strabag SE", "Joint Venture", "Austrian Motorway", "Active — Bidding", "60.0", "Tender submission Aug 20"],
+            ["Siemens Smart Infrastructure", "Strategic Partnership", "Data Centers", "MOU Negotiation", "30.0", "MOU signing Jul 31"],
+            ["Bouygues Construction", "Framework Agreement", "European Healthcare", "Discussion", "25.0", "Initial meeting Jul 22"],
+            ["Zaha Hadid Architects", "Design Partnership", "Iconic Buildings", "Discussion", "15.0", "Concept review Aug 5"],
+            ["Local Swiss Engineering Firm", "Acquisition Target", "Structural Engineering", "Due Diligence", "8.0", "Board review Jul 25"],
+            ["TechBuild AI", "Technology Partnership", "AI-powered Construction", "Pilot Phase", "5.0", "Pilot review Aug 15"]
+          ]
+        }
+      ],
+      "chartsData": [
+        {
+          "chartId": "chart-partnership-value",
+          "type": "bar",
+          "title": "Partnership Value Potential (CHF M)",
+          "data": [
+            { "label": "Strabag SE", "value": 60 },
+            { "label": "Implenia AG", "value": 45 },
+            { "label": "Siemens SI", "value": 30 },
+            { "label": "Bouygues", "value": 25 },
+            { "label": "Zaha Hadid", "value": 15 },
+            { "label": "Acquisition", "value": 8 },
+            { "label": "TechBuild AI", "value": 5 }
+          ]
+        }
+      ],
+      "sourceSystems": ["CRM System", "Legal Contract Management", "Board Papers Repository"],
+      "ctaBubbles": [
+        "Show me the Implenia JV performance details and upcoming bids",
+        "What are the key terms being negotiated with Siemens?",
+        "Prepare a partnership evaluation scorecard for Bouygues Construction",
+        "What is the strategic rationale for the engineering firm acquisition?"
+      ]
+    },
+    "actionable": true
+  }
+]

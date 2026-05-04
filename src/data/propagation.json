@@ -1,0 +1,721 @@
+[
+  {
+    "ruleId": "prop-reassign-task",
+    "actionId": "action-reassign-task",
+    "actionType": "reassign",
+    "triggerDescription": "Task reassignment initiated by project manager or director",
+    "sourceSystem": "system-primavera-p6",
+    "propagationChain": [
+      {
+        "order": 1,
+        "targetSystem": "system-primavera-p6",
+        "operation": "update",
+        "dataUpdate": "Resource assignment updated on activity; critical path recalculated with new resource calendar and availability constraints",
+        "latency": "immediate",
+        "confidence": 0.99
+      },
+      {
+        "order": 2,
+        "targetSystem": "system-workday",
+        "operation": "update",
+        "dataUpdate": "Employee project allocation percentages adjusted; previous assignee freed and new assignee committed for the task duration",
+        "latency": "< 30 seconds",
+        "confidence": 0.97
+      },
+      {
+        "order": 3,
+        "targetSystem": "system-procore",
+        "operation": "update",
+        "dataUpdate": "Field task assignment updated; daily log responsibility transferred; safety induction status verified for new assignee",
+        "latency": "< 1 minute",
+        "confidence": 0.95
+      }
+    ],
+    "notifiedPersonaIds": ["persona-sophie", "persona-lukas"],
+    "notificationMessages": {
+      "persona-sophie": "A task on your project has been reassigned. The schedule has been recalculated and the updated critical path is available for review.",
+      "persona-lukas": "A resource reassignment has been processed. Workforce utilization metrics have been updated across affected projects."
+    },
+    "rollbackSupported": true,
+    "category": "workforce"
+  },
+  {
+    "ruleId": "prop-approve-rfi",
+    "actionId": "action-approve-rfi",
+    "actionType": "approve",
+    "triggerDescription": "Request for Information approved by project team lead or director",
+    "sourceSystem": "system-procore",
+    "propagationChain": [
+      {
+        "order": 1,
+        "targetSystem": "system-procore",
+        "operation": "update",
+        "dataUpdate": "RFI status set to approved; linked drawings and specifications flagged for revision; distribution list notified automatically",
+        "latency": "immediate",
+        "confidence": 0.99
+      },
+      {
+        "order": 2,
+        "targetSystem": "system-navisworks",
+        "operation": "flag",
+        "dataUpdate": "BIM model elements linked to the RFI flagged for design coordination review; clash detection re-queued if geometry is affected",
+        "latency": "< 2 minutes",
+        "confidence": 0.92
+      },
+      {
+        "order": 3,
+        "targetSystem": "system-primavera-p6",
+        "operation": "assess",
+        "dataUpdate": "Schedule impact assessment triggered; affected activities evaluated for duration or logic changes based on RFI resolution",
+        "latency": "< 5 minutes",
+        "confidence": 0.88
+      }
+    ],
+    "notifiedPersonaIds": ["persona-sophie", "persona-elena"],
+    "notificationMessages": {
+      "persona-sophie": "An RFI on your project has been approved. Review the updated documentation and check for any schedule impacts.",
+      "persona-elena": "An approved RFI may affect cost estimates. Review linked scope items for potential cost implications."
+    },
+    "rollbackSupported": false,
+    "category": "management"
+  },
+  {
+    "ruleId": "prop-update-budget",
+    "actionId": "action-update-budget",
+    "actionType": "update",
+    "triggerDescription": "Budget allocation modified by finance controller or project director",
+    "sourceSystem": "system-sap-fi",
+    "propagationChain": [
+      {
+        "order": 1,
+        "targetSystem": "system-sap-fi",
+        "operation": "update",
+        "dataUpdate": "General ledger updated with revised budget allocation; cost center budgets adjusted; variance reports recalculated against new baseline",
+        "latency": "immediate",
+        "confidence": 0.99
+      },
+      {
+        "order": 2,
+        "targetSystem": "system-sap-mm",
+        "operation": "update",
+        "dataUpdate": "Procurement commitment limits adjusted to reflect new budget ceiling; purchase requisition approval thresholds recalibrated",
+        "latency": "< 1 minute",
+        "confidence": 0.96
+      },
+      {
+        "order": 3,
+        "targetSystem": "system-primavera-p6",
+        "operation": "update",
+        "dataUpdate": "Earned value baseline updated with revised budget at completion (BAC); CPI and EAC metrics recalculated",
+        "latency": "< 3 minutes",
+        "confidence": 0.93
+      }
+    ],
+    "notifiedPersonaIds": ["persona-lukas", "persona-elena"],
+    "notificationMessages": {
+      "persona-lukas": "A budget allocation has been updated. Portfolio financial summary and variance reports have been refreshed.",
+      "persona-elena": "Budget allocation has changed on a project. Review the updated cost plan and procurement commitment limits."
+    },
+    "rollbackSupported": true,
+    "category": "finance"
+  },
+  {
+    "ruleId": "prop-escalate-risk",
+    "actionId": "action-escalate-risk",
+    "actionType": "escalate",
+    "triggerDescription": "Project risk escalated to senior management for executive review",
+    "sourceSystem": "system-procore",
+    "propagationChain": [
+      {
+        "order": 1,
+        "targetSystem": "system-procore",
+        "operation": "update",
+        "dataUpdate": "Risk severity upgraded to critical; risk added to portfolio-level risk register; executive review workflow initiated",
+        "latency": "immediate",
+        "confidence": 0.99
+      },
+      {
+        "order": 2,
+        "targetSystem": "system-primavera-p6",
+        "operation": "recalculate",
+        "dataUpdate": "Schedule risk analysis re-run with updated risk parameters; Monte Carlo simulation refreshed with new probability distributions",
+        "latency": "< 5 minutes",
+        "confidence": 0.90
+      },
+      {
+        "order": 3,
+        "targetSystem": "system-sap-fi",
+        "operation": "flag",
+        "dataUpdate": "Contingency reserve flagged for potential drawdown; financial exposure report updated with escalated risk value",
+        "latency": "< 2 minutes",
+        "confidence": 0.94
+      }
+    ],
+    "notifiedPersonaIds": ["persona-lukas", "persona-sophie"],
+    "notificationMessages": {
+      "persona-lukas": "A risk has been escalated to executive level. Review the updated portfolio risk register and approve the mitigation strategy.",
+      "persona-sophie": "A risk on your project has been escalated. The schedule risk analysis has been refreshed with updated parameters."
+    },
+    "rollbackSupported": false,
+    "category": "risk"
+  },
+  {
+    "ruleId": "prop-approve-variation-order",
+    "actionId": "action-approve-variation-order",
+    "actionType": "approve",
+    "triggerDescription": "Contract variation order approved including scope, cost, and schedule changes",
+    "sourceSystem": "system-sap-fi",
+    "propagationChain": [
+      {
+        "order": 1,
+        "targetSystem": "system-sap-fi",
+        "operation": "update",
+        "dataUpdate": "Contract sum updated; revised budget committed in financial system; cash flow forecast adjusted for additional scope value",
+        "latency": "immediate",
+        "confidence": 0.99
+      },
+      {
+        "order": 2,
+        "targetSystem": "system-sap-mm",
+        "operation": "create",
+        "dataUpdate": "New procurement requirements generated for additional scope items; purchase requisitions created for materials and subcontract packages",
+        "latency": "< 2 minutes",
+        "confidence": 0.95
+      },
+      {
+        "order": 3,
+        "targetSystem": "system-primavera-p6",
+        "operation": "update",
+        "dataUpdate": "Schedule updated with additional activities and revised completion milestone; resource requirements recalculated",
+        "latency": "< 5 minutes",
+        "confidence": 0.91
+      },
+      {
+        "order": 4,
+        "targetSystem": "system-procore",
+        "operation": "distribute",
+        "dataUpdate": "Variation order logged in document control system; distributed to site team and subcontractors via automated notification",
+        "latency": "< 3 minutes",
+        "confidence": 0.96
+      }
+    ],
+    "notifiedPersonaIds": ["persona-lukas", "persona-elena", "persona-sophie"],
+    "notificationMessages": {
+      "persona-lukas": "A variation order has been approved. The contract sum and project budget have been updated. Review the revised financial baseline.",
+      "persona-elena": "A variation order has been approved affecting the project budget. New procurement requirements have been generated for your review.",
+      "persona-sophie": "A variation order has been approved on your project. The schedule has been updated with additional activities and a revised completion date."
+    },
+    "rollbackSupported": false,
+    "category": "finance"
+  },
+  {
+    "ruleId": "prop-certify-payment",
+    "actionId": "action-certify-payment",
+    "actionType": "approve",
+    "triggerDescription": "Interim payment application certified after quantity surveyor review",
+    "sourceSystem": "system-sap-fi",
+    "propagationChain": [
+      {
+        "order": 1,
+        "targetSystem": "system-sap-fi",
+        "operation": "create",
+        "dataUpdate": "Payment instruction generated and queued for accounts payable processing; payment due date calculated per contractual terms",
+        "latency": "immediate",
+        "confidence": 0.99
+      },
+      {
+        "order": 2,
+        "targetSystem": "system-sap-mm",
+        "operation": "confirm",
+        "dataUpdate": "Goods receipt confirmed against certified quantities; inventory records updated for materials received on site",
+        "latency": "< 1 minute",
+        "confidence": 0.97
+      },
+      {
+        "order": 3,
+        "targetSystem": "system-procore",
+        "operation": "update",
+        "dataUpdate": "Payment certification record linked to project documentation; contractor notified of certified amount and expected payment date",
+        "latency": "< 2 minutes",
+        "confidence": 0.95
+      }
+    ],
+    "notifiedPersonaIds": ["persona-elena", "persona-lukas"],
+    "notificationMessages": {
+      "persona-elena": "An interim payment has been certified. The payment instruction has been generated and queued for processing.",
+      "persona-lukas": "A payment certification has been processed. Cash flow forecast has been updated with the committed payment."
+    },
+    "rollbackSupported": true,
+    "category": "finance"
+  },
+  {
+    "ruleId": "prop-issue-ncr",
+    "actionId": "action-issue-ncr",
+    "actionType": "create",
+    "triggerDescription": "Non-conformance report issued against subcontractor or work package",
+    "sourceSystem": "system-procore",
+    "propagationChain": [
+      {
+        "order": 1,
+        "targetSystem": "system-procore",
+        "operation": "create",
+        "dataUpdate": "NCR logged in quality management system; corrective action deadline set per contractual requirements; responsible party formally notified",
+        "latency": "immediate",
+        "confidence": 0.99
+      },
+      {
+        "order": 2,
+        "targetSystem": "system-vendor-compliance-db",
+        "operation": "update",
+        "dataUpdate": "Supplier performance score updated to reflect non-conformance; NCR count incremented in vendor quality history",
+        "latency": "< 1 minute",
+        "confidence": 0.96
+      },
+      {
+        "order": 3,
+        "targetSystem": "system-sap-fi",
+        "operation": "track",
+        "dataUpdate": "Cost of rectification tracked against project contingency; potential back-charge initiated against subcontractor retention",
+        "latency": "< 3 minutes",
+        "confidence": 0.90
+      }
+    ],
+    "notifiedPersonaIds": ["persona-sophie", "persona-elena"],
+    "notificationMessages": {
+      "persona-sophie": "A non-conformance report has been issued on your project. Review the corrective action plan and monitor the response deadline.",
+      "persona-elena": "An NCR has been issued which may result in rectification costs or back-charges. Review the financial impact assessment."
+    },
+    "rollbackSupported": false,
+    "category": "compliance"
+  },
+  {
+    "ruleId": "prop-submit-proposal",
+    "actionId": "action-submit-proposal",
+    "actionType": "submit",
+    "triggerDescription": "Bid proposal formally submitted to client through tender process",
+    "sourceSystem": "system-salesforce",
+    "propagationChain": [
+      {
+        "order": 1,
+        "targetSystem": "system-salesforce",
+        "operation": "update",
+        "dataUpdate": "Opportunity stage updated to 'Proposal Submitted'; submission timestamp recorded; bid team notified of successful submission",
+        "latency": "immediate",
+        "confidence": 0.99
+      },
+      {
+        "order": 2,
+        "targetSystem": "system-sap-fi",
+        "operation": "update",
+        "dataUpdate": "Revenue forecast updated with weighted pipeline value adjustment based on submission probability uplift",
+        "latency": "< 2 minutes",
+        "confidence": 0.93
+      },
+      {
+        "order": 3,
+        "targetSystem": "system-workday",
+        "operation": "flag",
+        "dataUpdate": "Resource pre-allocation flagged for mobilization planning; key personnel availability reserved pending bid outcome",
+        "latency": "< 5 minutes",
+        "confidence": 0.85
+      }
+    ],
+    "notifiedPersonaIds": ["persona-james", "persona-lukas"],
+    "notificationMessages": {
+      "persona-james": "Your proposal has been successfully submitted. The pipeline has been updated and the opportunity stage advanced.",
+      "persona-lukas": "A new proposal has been submitted. Revenue forecast and resource pre-allocation have been updated accordingly."
+    },
+    "rollbackSupported": false,
+    "category": "sales"
+  },
+  {
+    "ruleId": "prop-update-client-engagement",
+    "actionId": "action-update-client-engagement",
+    "actionType": "update",
+    "triggerDescription": "Client interaction logged and relationship health score updated",
+    "sourceSystem": "system-salesforce",
+    "propagationChain": [
+      {
+        "order": 1,
+        "targetSystem": "system-salesforce",
+        "operation": "update",
+        "dataUpdate": "Client health score recalculated based on new engagement data; engagement timeline updated; automated follow-up reminders scheduled",
+        "latency": "immediate",
+        "confidence": 0.99
+      },
+      {
+        "order": 2,
+        "targetSystem": "system-procore",
+        "operation": "update",
+        "dataUpdate": "Stakeholder communication log updated if engagement is linked to an active project; action items synced to project tracker",
+        "latency": "< 2 minutes",
+        "confidence": 0.88
+      }
+    ],
+    "notifiedPersonaIds": ["persona-james"],
+    "notificationMessages": {
+      "persona-james": "Client engagement record has been updated. The health score has been recalculated and follow-up reminders have been set."
+    },
+    "rollbackSupported": true,
+    "category": "sales"
+  },
+  {
+    "ruleId": "prop-reallocate-resources",
+    "actionId": "action-reallocate-resources",
+    "actionType": "update",
+    "triggerDescription": "Team members moved between projects to resolve resource conflicts",
+    "sourceSystem": "system-workday",
+    "propagationChain": [
+      {
+        "order": 1,
+        "targetSystem": "system-workday",
+        "operation": "update",
+        "dataUpdate": "Employee assignment records updated with new project allocation percentages; timesheet templates adjusted for affected personnel",
+        "latency": "immediate",
+        "confidence": 0.99
+      },
+      {
+        "order": 2,
+        "targetSystem": "system-primavera-p6",
+        "operation": "recalculate",
+        "dataUpdate": "Resource histograms recalculated for all affected projects; schedule re-leveled based on new resource availability",
+        "latency": "< 5 minutes",
+        "confidence": 0.91
+      },
+      {
+        "order": 3,
+        "targetSystem": "system-procore",
+        "operation": "update",
+        "dataUpdate": "Site access permissions updated for reassigned personnel; safety induction requirements verified for new project assignments",
+        "latency": "< 3 minutes",
+        "confidence": 0.93
+      }
+    ],
+    "notifiedPersonaIds": ["persona-sophie", "persona-lukas"],
+    "notificationMessages": {
+      "persona-sophie": "Resources have been reallocated across your projects. Review the updated team assignments and schedule impacts.",
+      "persona-lukas": "A resource reallocation has been processed. Workforce utilization metrics and project schedules have been updated."
+    },
+    "rollbackSupported": true,
+    "category": "workforce"
+  },
+  {
+    "ruleId": "prop-approve-procurement-award",
+    "actionId": "action-approve-procurement-award",
+    "actionType": "approve",
+    "triggerDescription": "Procurement package awarded to recommended supplier following tender evaluation",
+    "sourceSystem": "system-sap-mm",
+    "propagationChain": [
+      {
+        "order": 1,
+        "targetSystem": "system-sap-mm",
+        "operation": "create",
+        "dataUpdate": "Purchase order generated and transmitted to awarded supplier; unsuccessful tenderers notified with debriefing offer",
+        "latency": "immediate",
+        "confidence": 0.99
+      },
+      {
+        "order": 2,
+        "targetSystem": "system-sap-fi",
+        "operation": "commit",
+        "dataUpdate": "Budget commitment recorded against the project cost code; accounts payable schedule updated with expected payment milestones",
+        "latency": "< 1 minute",
+        "confidence": 0.98
+      },
+      {
+        "order": 3,
+        "targetSystem": "system-vendor-compliance-db",
+        "operation": "create",
+        "dataUpdate": "Supplier compliance checks verified and contract record created; insurance and certification validity confirmed",
+        "latency": "< 2 minutes",
+        "confidence": 0.95
+      },
+      {
+        "order": 4,
+        "targetSystem": "system-primavera-p6",
+        "operation": "update",
+        "dataUpdate": "Delivery milestones added to project schedule based on supplier lead times and contractual delivery dates",
+        "latency": "< 5 minutes",
+        "confidence": 0.90
+      }
+    ],
+    "notifiedPersonaIds": ["persona-elena", "persona-lukas"],
+    "notificationMessages": {
+      "persona-elena": "A procurement award has been approved. The purchase order has been generated and budget commitment recorded.",
+      "persona-lukas": "A procurement package has been awarded. Project budget commitments and delivery milestones have been updated."
+    },
+    "rollbackSupported": false,
+    "category": "procurement"
+  },
+  {
+    "ruleId": "prop-submit-compliance-report",
+    "actionId": "action-submit-compliance-report",
+    "actionType": "submit",
+    "triggerDescription": "Regulatory compliance report submitted to authority or governance body",
+    "sourceSystem": "system-amsterdam-authority-portal",
+    "propagationChain": [
+      {
+        "order": 1,
+        "targetSystem": "system-amsterdam-authority-portal",
+        "operation": "submit",
+        "dataUpdate": "Compliance submission logged with authority reference number; acknowledgement receipt recorded with timestamp",
+        "latency": "immediate",
+        "confidence": 0.99
+      },
+      {
+        "order": 2,
+        "targetSystem": "system-procore",
+        "operation": "update",
+        "dataUpdate": "Project compliance tracker updated with submission date, reference number, and expected response timeline",
+        "latency": "< 1 minute",
+        "confidence": 0.96
+      },
+      {
+        "order": 3,
+        "targetSystem": "system-esg-registry",
+        "operation": "update",
+        "dataUpdate": "ESG metrics updated if report includes environmental or sustainability data; compliance score recalculated",
+        "latency": "< 3 minutes",
+        "confidence": 0.89
+      }
+    ],
+    "notifiedPersonaIds": ["persona-lukas", "persona-sophie"],
+    "notificationMessages": {
+      "persona-lukas": "A compliance report has been submitted to the regulatory authority. The portfolio compliance dashboard has been updated.",
+      "persona-sophie": "A compliance report for your project has been submitted. The project compliance tracker reflects the submission status."
+    },
+    "rollbackSupported": false,
+    "category": "compliance"
+  },
+  {
+    "ruleId": "prop-update-schedule-baseline",
+    "actionId": "action-update-schedule-baseline",
+    "actionType": "update",
+    "triggerDescription": "Project schedule re-baselined following approved change or recovery plan",
+    "sourceSystem": "system-primavera-p6",
+    "propagationChain": [
+      {
+        "order": 1,
+        "targetSystem": "system-primavera-p6",
+        "operation": "update",
+        "dataUpdate": "New baseline stored; all SPI and CPI metrics recalculated from new reference; previous baseline archived for audit trail",
+        "latency": "immediate",
+        "confidence": 0.99
+      },
+      {
+        "order": 2,
+        "targetSystem": "system-procore",
+        "operation": "distribute",
+        "dataUpdate": "Updated milestone dates distributed to field teams and subcontractors; look-ahead schedules regenerated",
+        "latency": "< 3 minutes",
+        "confidence": 0.94
+      },
+      {
+        "order": 3,
+        "targetSystem": "system-sap-fi",
+        "operation": "update",
+        "dataUpdate": "Cash flow forecast updated to align with revised schedule milestones; payment projection dates recalculated",
+        "latency": "< 5 minutes",
+        "confidence": 0.91
+      }
+    ],
+    "notifiedPersonaIds": ["persona-sophie", "persona-lukas"],
+    "notificationMessages": {
+      "persona-sophie": "The schedule baseline has been updated. All earned value metrics have been recalculated and new milestone dates distributed.",
+      "persona-lukas": "A project schedule has been re-baselined. Portfolio performance metrics and cash flow forecasts have been refreshed."
+    },
+    "rollbackSupported": true,
+    "category": "schedule"
+  },
+  {
+    "ruleId": "prop-log-partnership-milestone",
+    "actionId": "action-log-partnership-milestone",
+    "actionType": "create",
+    "triggerDescription": "Key milestone or decision point recorded in strategic partnership",
+    "sourceSystem": "system-salesforce",
+    "propagationChain": [
+      {
+        "order": 1,
+        "targetSystem": "system-salesforce",
+        "operation": "update",
+        "dataUpdate": "Partnership timeline updated with milestone record; stakeholder notifications triggered; next milestone reminders configured",
+        "latency": "immediate",
+        "confidence": 0.99
+      },
+      {
+        "order": 2,
+        "targetSystem": "system-sap-fi",
+        "operation": "update",
+        "dataUpdate": "Joint venture financial tracking updated if milestone has revenue implications; partnership revenue recognition adjusted",
+        "latency": "< 3 minutes",
+        "confidence": 0.87
+      }
+    ],
+    "notifiedPersonaIds": ["persona-james", "persona-lukas"],
+    "notificationMessages": {
+      "persona-james": "A partnership milestone has been logged. The partnership timeline and stakeholder notifications have been updated.",
+      "persona-lukas": "A strategic partnership milestone has been recorded. Review the updated partnership status and any financial implications."
+    },
+    "rollbackSupported": true,
+    "category": "sales"
+  },
+  {
+    "ruleId": "prop-reject-subcontractor-claim",
+    "actionId": "action-reject-subcontractor-claim",
+    "actionType": "reject",
+    "triggerDescription": "Subcontractor claim formally rejected with documented justification",
+    "sourceSystem": "system-sap-fi",
+    "propagationChain": [
+      {
+        "order": 1,
+        "targetSystem": "system-sap-fi",
+        "operation": "update",
+        "dataUpdate": "Claim status updated to rejected; amount removed from accrued liabilities; financial exposure reduced in project forecast",
+        "latency": "immediate",
+        "confidence": 0.99
+      },
+      {
+        "order": 2,
+        "targetSystem": "system-procore",
+        "operation": "create",
+        "dataUpdate": "Claim rejection letter generated with contractual references; logged in contract administration records; subcontractor formally notified",
+        "latency": "< 2 minutes",
+        "confidence": 0.96
+      },
+      {
+        "order": 3,
+        "targetSystem": "system-vendor-compliance-db",
+        "operation": "update",
+        "dataUpdate": "Subcontractor claims history updated; dispute flag set if subcontractor indicates intent to escalate",
+        "latency": "< 2 minutes",
+        "confidence": 0.94
+      }
+    ],
+    "notifiedPersonaIds": ["persona-elena", "persona-sophie"],
+    "notificationMessages": {
+      "persona-elena": "A subcontractor claim has been rejected. The financial forecast has been updated and the rejection has been formally documented.",
+      "persona-sophie": "A subcontractor claim on your project has been rejected. Monitor for potential dispute escalation from the subcontractor."
+    },
+    "rollbackSupported": false,
+    "category": "procurement"
+  },
+  {
+    "ruleId": "prop-generate-executive-report",
+    "actionId": "action-generate-executive-report",
+    "actionType": "create",
+    "triggerDescription": "Consolidated executive performance report compiled from all connected systems",
+    "sourceSystem": "system-procore",
+    "propagationChain": [
+      {
+        "order": 1,
+        "targetSystem": "system-procore",
+        "operation": "extract",
+        "dataUpdate": "Project performance data extracted including progress metrics, quality KPIs, and safety statistics consolidated into report template",
+        "latency": "immediate",
+        "confidence": 0.99
+      },
+      {
+        "order": 2,
+        "targetSystem": "system-sap-fi",
+        "operation": "extract",
+        "dataUpdate": "Financial KPIs, budget utilization, cost variance, and cash flow data pulled for the reporting period",
+        "latency": "< 1 minute",
+        "confidence": 0.98
+      },
+      {
+        "order": 3,
+        "targetSystem": "system-primavera-p6",
+        "operation": "extract",
+        "dataUpdate": "Schedule performance metrics, milestone status, SPI/CPI values, and critical path summary extracted",
+        "latency": "< 2 minutes",
+        "confidence": 0.96
+      },
+      {
+        "order": 4,
+        "targetSystem": "system-workday",
+        "operation": "extract",
+        "dataUpdate": "Workforce utilization rates, capacity data, open positions, and resource allocation summary included in report",
+        "latency": "< 2 minutes",
+        "confidence": 0.94
+      }
+    ],
+    "notifiedPersonaIds": ["persona-lukas"],
+    "notificationMessages": {
+      "persona-lukas": "Your executive report has been generated. Data has been consolidated from all connected systems and is available in the executive dashboard."
+    },
+    "rollbackSupported": false,
+    "category": "reporting"
+  },
+  {
+    "ruleId": "prop-update-esg-metrics",
+    "actionId": "action-update-esg-metrics",
+    "actionType": "update",
+    "triggerDescription": "Environmental, social, and governance metrics updated for a project",
+    "sourceSystem": "system-esg-registry",
+    "propagationChain": [
+      {
+        "order": 1,
+        "targetSystem": "system-esg-registry",
+        "operation": "update",
+        "dataUpdate": "Sustainability dashboard updated with new metrics; project sustainability score recalculated; trend analysis refreshed",
+        "latency": "immediate",
+        "confidence": 0.99
+      },
+      {
+        "order": 2,
+        "targetSystem": "system-procore",
+        "operation": "update",
+        "dataUpdate": "Project environmental compliance status refreshed; site environmental monitoring records updated",
+        "latency": "< 2 minutes",
+        "confidence": 0.93
+      },
+      {
+        "order": 3,
+        "targetSystem": "system-amsterdam-authority-portal",
+        "operation": "flag",
+        "dataUpdate": "Regulatory reporting data flagged for update if environmental thresholds are affected; next submission deadline highlighted",
+        "latency": "< 5 minutes",
+        "confidence": 0.86
+      }
+    ],
+    "notifiedPersonaIds": ["persona-lukas", "persona-sophie"],
+    "notificationMessages": {
+      "persona-lukas": "ESG metrics have been updated. The portfolio sustainability dashboard and compliance status have been refreshed.",
+      "persona-sophie": "ESG metrics for your project have been updated. Review the environmental compliance status for any threshold changes."
+    },
+    "rollbackSupported": true,
+    "category": "compliance"
+  },
+  {
+    "ruleId": "prop-create-revenue-forecast",
+    "actionId": "action-create-revenue-forecast",
+    "actionType": "create",
+    "triggerDescription": "Revenue forecast model generated from pipeline data and contract backlog",
+    "sourceSystem": "system-salesforce",
+    "propagationChain": [
+      {
+        "order": 1,
+        "targetSystem": "system-salesforce",
+        "operation": "create",
+        "dataUpdate": "Forecast snapshot saved with weighted pipeline values, probability adjustments, and sector breakdowns; version history maintained",
+        "latency": "immediate",
+        "confidence": 0.99
+      },
+      {
+        "order": 2,
+        "targetSystem": "system-sap-fi",
+        "operation": "update",
+        "dataUpdate": "Revenue projection data shared with financial planning module for budget alignment and quarterly target reconciliation",
+        "latency": "< 3 minutes",
+        "confidence": 0.92
+      }
+    ],
+    "notifiedPersonaIds": ["persona-james", "persona-lukas"],
+    "notificationMessages": {
+      "persona-james": "A new revenue forecast has been created. The forecast snapshot is available for review and has been shared with the finance team.",
+      "persona-lukas": "A revenue forecast has been generated. Financial planning data has been updated for budget alignment review."
+    },
+    "rollbackSupported": true,
+    "category": "finance"
+  }
+]
