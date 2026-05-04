@@ -7,12 +7,13 @@
  * @module SignupPage
  */
 
-import { useCallback } from 'react';
+import { useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { SignupForm } from '@/components/auth/SignupForm';
 import { useAuth } from '@/contexts/AuthContext';
-import { useApp } from '@/contexts/AppContext';
-import { APP_TITLE, APP_VERSION, SCREEN_IDS } from '@/utils/constants';
+import { usePersona } from '@/contexts/PersonaContext';
+import { APP_TITLE, APP_VERSION } from '@/utils/constants';
 
 /**
  * SignupPage component.
@@ -32,7 +33,14 @@ export function SignupPage({
   className = '',
 }) {
   const { isAuthenticated } = useAuth();
-  const { goToScreenById, addNotification } = useApp();
+  const { setPersona } = usePersona();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/onboarding', { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
 
   /**
    * Handle successful signup from SignupForm.
@@ -42,9 +50,11 @@ export function SignupPage({
     if (typeof onSignupSuccess === 'function') {
       onSignupSuccess(session);
     }
-
-    goToScreenById(SCREEN_IDS.PERSONA_SELECTION);
-  }, [onSignupSuccess, goToScreenById]);
+    if (session && session.personaId) {
+      setPersona(session.personaId);
+    }
+    navigate('/onboarding');
+  }, [onSignupSuccess, setPersona, navigate]);
 
   /**
    * Handle login link click.
@@ -52,8 +62,10 @@ export function SignupPage({
   const handleLoginClick = useCallback(() => {
     if (typeof onLoginClick === 'function') {
       onLoginClick();
+      return;
     }
-  }, [onLoginClick]);
+    navigate('/');
+  }, [onLoginClick, navigate]);
 
   return (
     <div className={`relative min-h-screen flex flex-col items-center justify-center bg-dreeso-dark-950 overflow-hidden ${className}`}>

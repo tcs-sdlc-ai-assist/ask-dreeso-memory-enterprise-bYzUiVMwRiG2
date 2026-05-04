@@ -170,20 +170,23 @@ export const BREAKPOINTS = {
 // ─── Route Paths ─────────────────────────────────────────────────────────────
 
 export const ROUTES = {
-  HOME: '/',
-  WELCOME: '/welcome',
-  PERSONA_SELECTION: '/personas',
-  DASHBOARD: '/dashboard/:personaId',
-  QUERY: '/query/:personaId',
-  ACTION: '/action/:personaId',
+  LOGIN: '/',
+  SIGNUP: '/signup',
+  ONBOARDING: '/onboarding',
+  HOME: '/home',
+  QUERY: '/query',
+  ACTION: '/action',
   CROSS_DOMAIN: '/cross-domain',
-  MEMORY_SHOWCASE: '/memory',
-  CLOSING: '/closing',
+  AUDIT_LOG: '/audit-log',
+  SUMMARY: '/summary',
+  PERSONA_SWITCH: '/persona-switch',
 };
 
 // ─── Screen IDs ──────────────────────────────────────────────────────────────
 
 export const SCREEN_IDS = {
+  LOGIN: 'screen-login',
+  ONBOARDING: 'screen-onboarding',
   WELCOME: 'screen-welcome',
   PERSONA_SELECTION: 'screen-persona-selection',
   LUKAS_DASHBOARD: 'screen-lukas-dashboard',

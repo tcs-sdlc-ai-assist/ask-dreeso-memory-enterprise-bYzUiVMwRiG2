@@ -10,6 +10,7 @@
 
 import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { useSearchParams } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import { QueryBar } from '@/components/query/QueryBar';
 import { QueryResponse } from '@/components/query/QueryResponse';
@@ -268,6 +269,7 @@ export function QueryPage({
   const { currentPersonaId, currentPersona } = usePersona();
   const { session } = useAuth();
   const { addNotification, goToScreenById, currentScreen } = useApp();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   const {
     submitQuery,
@@ -300,74 +302,6 @@ export function QueryPage({
   const screenTitle = currentPersonaId && PERSONA_SCREEN_TITLES[currentPersonaId]
     ? PERSONA_SCREEN_TITLES[currentPersonaId]
     : 'Query Intelligence';
-
-  // Track mounted state
-  useEffect(() => {
-    mountedRef.current = true;
-    return () => {
-      mountedRef.current = false;
-    };
-  }, []);
-
-  // Process initial query on mount if provided
-  useEffect(() => {
-    if (
-      initialQuery &&
-      typeof initialQuery === 'string' &&
-      initialQuery.trim() !== '' &&
-      currentPersonaId &&
-      !initialQueryProcessedRef.current
-    ) {
-      initialQueryProcessedRef.current = true;
-      handleQuerySubmit(initialQuery.trim());
-    }
-  }, [initialQuery, currentPersonaId]);
-
-  // Also check currentScreen for query text from screen flow
-  useEffect(() => {
-    if (
-      currentScreen &&
-      currentScreen.personaId &&
-      currentScreen.personaId === currentPersonaId &&
-      !initialQueryProcessedRef.current
-    ) {
-      // Check if this screen has an associated query from the screen flow
-      const screenId = currentScreen.id;
-      if (
-        screenId === SCREEN_IDS.LUKAS_QUERY ||
-        screenId === SCREEN_IDS.ELENA_QUERY ||
-        screenId === SCREEN_IDS.SOPHIE_QUERY ||
-        screenId === SCREEN_IDS.JAMES_QUERY
-      ) {
-        // The query will be triggered by the user or by initialQuery prop
-      }
-    }
-  }, [currentScreen, currentPersonaId]);
-
-  // Sync flow phase with loading/response/error states
-  useEffect(() => {
-    if (isLoading) {
-      setFlowPhase(FLOW_PHASE.LOADING);
-    } else if (error) {
-      setFlowPhase(FLOW_PHASE.RESPONSE);
-    } else if (response) {
-      setFlowPhase(FLOW_PHASE.RESPONSE);
-
-      if (typeof onResponseReceived === 'function') {
-        onResponseReceived(response);
-      }
-    }
-  }, [isLoading, error, response, onResponseReceived]);
-
-  // Reset state when persona changes
-  useEffect(() => {
-    setFlowPhase(FLOW_PHASE.IDLE);
-    setPropagationEvents([]);
-    setSelectedAction(null);
-    setIsActionConfirmOpen(false);
-    setLastQueryText('');
-    initialQueryProcessedRef.current = false;
-  }, [currentPersonaId]);
 
   /**
    * Handle query submission from QueryBar or CTA bubbles.
@@ -480,6 +414,80 @@ export function QueryPage({
     setSelectedAction(null);
     setIsActionConfirmOpen(false);
   }, [clearResponse, clearSuggestions]);
+
+  // Track mounted state
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+    };
+  }, []);
+
+  // Process initial query on mount if provided via prop or URL param
+  useEffect(() => {
+    const queryParam = searchParams.get('q');
+    const effectiveQuery = initialQuery || queryParam;
+
+    if (
+      effectiveQuery &&
+      typeof effectiveQuery === 'string' &&
+      effectiveQuery.trim() !== '' &&
+      currentPersonaId &&
+      !initialQueryProcessedRef.current
+    ) {
+      initialQueryProcessedRef.current = true;
+      handleQuerySubmit(effectiveQuery.trim());
+
+      // If it came from URL, clear it to avoid re-triggering on reload if unwanted
+      // or keep it for deep linking. Here we keep it for deep linking but mark as processed.
+    }
+  }, [initialQuery, currentPersonaId, searchParams, handleQuerySubmit]);
+
+  // Also check currentScreen for query text from screen flow
+  useEffect(() => {
+    if (
+      currentScreen &&
+      currentScreen.personaId &&
+      currentScreen.personaId === currentPersonaId &&
+      !initialQueryProcessedRef.current
+    ) {
+      // Check if this screen has an associated query from the screen flow
+      const screenId = currentScreen.id;
+      if (
+        screenId === SCREEN_IDS.LUKAS_QUERY ||
+        screenId === SCREEN_IDS.ELENA_QUERY ||
+        screenId === SCREEN_IDS.SOPHIE_QUERY ||
+        screenId === SCREEN_IDS.JAMES_QUERY
+      ) {
+        // The query will be triggered by the user or by initialQuery prop
+      }
+    }
+  }, [currentScreen, currentPersonaId]);
+
+  // Sync flow phase with loading/response/error states
+  useEffect(() => {
+    if (isLoading) {
+      setFlowPhase(FLOW_PHASE.LOADING);
+    } else if (error) {
+      setFlowPhase(FLOW_PHASE.RESPONSE);
+    } else if (response) {
+      setFlowPhase(FLOW_PHASE.RESPONSE);
+
+      if (typeof onResponseReceived === 'function') {
+        onResponseReceived(response);
+      }
+    }
+  }, [isLoading, error, response, onResponseReceived]);
+
+  // Reset state when persona changes
+  useEffect(() => {
+    setFlowPhase(FLOW_PHASE.IDLE);
+    setPropagationEvents([]);
+    setSelectedAction(null);
+    setIsActionConfirmOpen(false);
+    setLastQueryText('');
+    initialQueryProcessedRef.current = false;
+  }, [currentPersonaId]);
 
   /**
    * Active source systems from the current response.

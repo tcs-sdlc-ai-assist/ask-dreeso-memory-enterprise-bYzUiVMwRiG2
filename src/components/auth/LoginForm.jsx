@@ -9,6 +9,7 @@
 
 import { useState, useCallback, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { GlassCard } from '@/components/common/GlassCard';
 import { useAuth } from '@/contexts/AuthContext';
 import { useApp } from '@/contexts/AppContext';
@@ -166,6 +167,7 @@ export function LoginForm({
 }) {
   const { login } = useAuth();
   const { addNotification } = useApp();
+  const navigate = useNavigate();
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -305,8 +307,10 @@ export function LoginForm({
 
     if (typeof onSignUpClick === 'function') {
       onSignUpClick();
+      return;
     }
-  }, [onSignUpClick]);
+    navigate('/signup');
+  }, [onSignUpClick, navigate]);
 
   const hasTitle = showTitle && typeof title === 'string' && title.trim() !== '';
   const hasSubtitle = showSubtitle && typeof subtitle === 'string' && subtitle.trim() !== '';

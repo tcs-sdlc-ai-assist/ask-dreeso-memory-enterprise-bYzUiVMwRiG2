@@ -9,6 +9,7 @@
 
 import { useState, useCallback, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { GlassCard } from '@/components/common/GlassCard';
 import { Avatar } from '@/components/common/Avatar';
 import { useAuth } from '@/contexts/AuthContext';
@@ -298,6 +299,7 @@ export function OnboardingPage({
   const { session } = useAuth();
   const { currentPersonaId, currentPersona, personaList } = usePersona();
   const { goToScreenById, addNotification } = useApp();
+  const navigate = useNavigate();
 
   const [currentStep, setCurrentStep] = useState(0);
   const mountedRef = useRef(true);
@@ -320,26 +322,6 @@ export function OnboardingPage({
   }, []);
 
   /**
-   * Handle advancing to the next step.
-   */
-  const handleNext = useCallback(() => {
-    if (currentStep < TOTAL_STEPS - 1) {
-      setCurrentStep((prev) => prev + 1);
-    } else {
-      handleComplete();
-    }
-  }, [currentStep]);
-
-  /**
-   * Handle going back to the previous step.
-   */
-  const handlePrev = useCallback(() => {
-    if (currentStep > 0) {
-      setCurrentStep((prev) => prev - 1);
-    }
-  }, [currentStep]);
-
-  /**
    * Handle completing the onboarding.
    */
   const handleComplete = useCallback(() => {
@@ -349,7 +331,7 @@ export function OnboardingPage({
       onComplete();
     }
 
-    // Navigate to the persona's dashboard
+    // Update screen flow state for persistence
     if (currentPersonaId === 'persona-lukas') {
       goToScreenById(SCREEN_IDS.LUKAS_DASHBOARD);
     } else if (currentPersonaId === 'persona-elena') {
@@ -361,7 +343,10 @@ export function OnboardingPage({
     } else {
       goToScreenById(SCREEN_IDS.PERSONA_SELECTION);
     }
-  }, [currentPersonaId, goToScreenById, addNotification, onComplete]);
+
+    // Actual route navigation
+    navigate('/home');
+  }, [currentPersonaId, goToScreenById, addNotification, onComplete, navigate]);
 
   /**
    * Handle skipping the onboarding.
@@ -375,6 +360,26 @@ export function OnboardingPage({
 
     handleComplete();
   }, [addNotification, onSkip, handleComplete]);
+
+  /**
+   * Handle advancing to the next step.
+   */
+  const handleNext = useCallback(() => {
+    if (currentStep < TOTAL_STEPS - 1) {
+      setCurrentStep((prev) => prev + 1);
+    } else {
+      handleComplete();
+    }
+  }, [currentStep, handleComplete]);
+
+  /**
+   * Handle going back to the previous step.
+   */
+  const handlePrev = useCallback(() => {
+    if (currentStep > 0) {
+      setCurrentStep((prev) => prev - 1);
+    }
+  }, [currentStep]);
 
   // Keyboard shortcut handler
   useEffect(() => {
@@ -466,6 +471,20 @@ export function OnboardingPage({
             <p className="text-2xl font-semibold text-white">24</p>
             <p className="text-xs text-dreeso-dark-400 mt-0.5">Intelligence Clusters</p>
           </div>
+        </div>
+
+        {/* Immediate Get Started for Step 0 */}
+        <div className="pt-4">
+          <button
+            type="button"
+            className="inline-flex items-center gap-2 px-6 py-2.5 text-sm font-medium text-white rounded-xl transition-all duration-200 focus:outline-none focus:ring-1 focus:ring-dreeso-accent-500 bg-dreeso-accent-500 hover:bg-dreeso-accent-600 hover:shadow-accent-glow"
+            onClick={handleComplete}
+          >
+            Get Started
+            <svg className="w-4 h-4 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
+              <path fillRule="evenodd" d="M10.293 3.293a1 1 0 011.414 0l6 6a1 1 0 010 1.414l-6 6a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-4.293-4.293a1 1 0 010-1.414z" clipRule="evenodd" />
+            </svg>
+          </button>
         </div>
       </div>
     );

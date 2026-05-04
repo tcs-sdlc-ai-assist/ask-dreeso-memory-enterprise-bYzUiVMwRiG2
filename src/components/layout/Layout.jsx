@@ -10,6 +10,7 @@
 
 import { useCallback } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { Navbar } from '@/components/layout/Navbar';
 import { NotificationContainer } from '@/components/common/Notification';
 import { useKeyboardControls } from '@/hooks/useKeyboardControls';
@@ -44,6 +45,7 @@ export function Layout({
 }) {
   const { currentScreen, addNotification } = useApp();
   const { currentPersonaId, currentPersona } = usePersona();
+  const navigate = useNavigate();
 
   /**
    * Handle advance screen callback for keyboard controls.
@@ -136,7 +138,13 @@ export function Layout({
               )}
 
               {/* Query input placeholder */}
-              <div className="flex-1 glass-input flex items-center gap-2 cursor-text opacity-70 hover:opacity-100 transition-opacity duration-150">
+              <div
+                className="flex-1 glass-input flex items-center gap-2 cursor-pointer opacity-70 hover:opacity-100 transition-opacity duration-150"
+                onClick={() => navigate('/query')}
+                role="button"
+                tabIndex={0}
+                onKeyDown={(e) => e.key === 'Enter' && navigate('/query')}
+              >
                 <svg
                   className="w-4 h-4 text-dreeso-dark-400 shrink-0"
                   viewBox="0 0 20 20"

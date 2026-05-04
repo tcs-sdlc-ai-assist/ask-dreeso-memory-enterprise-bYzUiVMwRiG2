@@ -9,6 +9,7 @@
 
 import { useState, useCallback, useMemo, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import { ClusterGrid } from '@/components/clusters/ClusterGrid';
 import { SourcePanel } from '@/components/query/SourcePanel';
@@ -356,6 +357,7 @@ export function HomePage({
   const { currentPersonaId, currentPersona } = usePersona();
   const { session } = useAuth();
   const { goToScreenById, addNotification } = useApp();
+  const navigate = useNavigate();
 
   const [recentActivity, setRecentActivity] = useState([]);
 
@@ -398,17 +400,9 @@ export function HomePage({
       onQuerySubmit(queryTemplate);
     }
 
-    // Navigate to the persona's query screen
-    if (currentPersonaId === 'persona-lukas') {
-      goToScreenById(SCREEN_IDS.LUKAS_QUERY);
-    } else if (currentPersonaId === 'persona-elena') {
-      goToScreenById(SCREEN_IDS.ELENA_QUERY);
-    } else if (currentPersonaId === 'persona-sophie') {
-      goToScreenById(SCREEN_IDS.SOPHIE_QUERY);
-    } else if (currentPersonaId === 'persona-james') {
-      goToScreenById(SCREEN_IDS.JAMES_QUERY);
-    }
-  }, [onQuerySubmit, currentPersonaId, goToScreenById]);
+    // Actual route navigation with query parameter
+    navigate(`/query?q=${encodeURIComponent(queryTemplate)}`);
+  }, [onQuerySubmit, navigate]);
 
   /**
    * Handle cluster click.

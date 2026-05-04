@@ -7,13 +7,14 @@
  * @module LoginPage
  */
 
-import { useState, useCallback } from 'react';
+import { useState, useCallback, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { LoginForm } from '@/components/auth/LoginForm';
 import { PersonaSelector } from '@/components/auth/PersonaSelector';
 import { useAuth } from '@/contexts/AuthContext';
-import { useApp } from '@/contexts/AppContext';
-import { APP_TITLE, APP_VERSION, SCREEN_IDS } from '@/utils/constants';
+import { usePersona } from '@/contexts/PersonaContext';
+import { APP_TITLE, APP_VERSION } from '@/utils/constants';
 
 /**
  * LoginPage component.
@@ -36,9 +37,16 @@ export function LoginPage({
   className = '',
 }) {
   const { isAuthenticated } = useAuth();
-  const { goToScreenById, addNotification } = useApp();
+  const { setPersona } = usePersona();
+  const navigate = useNavigate();
 
   const [activeTab, setActiveTab] = useState('persona');
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      navigate('/onboarding', { replace: true });
+    }
+  }, [isAuthenticated, navigate]);
 
   /**
    * Handle successful login from LoginForm.
@@ -48,9 +56,11 @@ export function LoginPage({
     if (typeof onLoginSuccess === 'function') {
       onLoginSuccess(session);
     }
-
-    goToScreenById(SCREEN_IDS.PERSONA_SELECTION);
-  }, [onLoginSuccess, goToScreenById]);
+    if (session && session.personaId) {
+      setPersona(session.personaId);
+    }
+    navigate('/onboarding');
+  }, [onLoginSuccess, setPersona, navigate]);
 
   /**
    * Handle persona selection from PersonaSelector.
@@ -67,8 +77,11 @@ export function LoginPage({
    * @param {object} session - The session object.
    */
   const handleLoginComplete = useCallback((session) => {
-    goToScreenById(SCREEN_IDS.PERSONA_SELECTION);
-  }, [goToScreenById]);
+    if (session && session.personaId) {
+      setPersona(session.personaId);
+    }
+    navigate('/onboarding');
+  }, [setPersona, navigate]);
 
   /**
    * Handle sign up link click.
@@ -76,8 +89,10 @@ export function LoginPage({
   const handleSignUpClick = useCallback(() => {
     if (typeof onSignUpClick === 'function') {
       onSignUpClick();
+      return;
     }
-  }, [onSignUpClick]);
+    navigate('/signup');
+  }, [onSignUpClick, navigate]);
 
   /**
    * Switch to the persona tab.
