@@ -8,6 +8,7 @@
 
 import { useCallback } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { GlassCard } from '@/components/common/GlassCard';
 import { useApp } from '@/contexts/AppContext';
 import { usePersona } from '@/contexts/PersonaContext';
@@ -28,6 +29,7 @@ import { APP_TITLE, APP_VERSION, SCREEN_IDS } from '@/utils/constants';
 export function NotFoundPage({ className = '', onGoHome }) {
   const { goToScreenById, goToScreen } = useApp();
   const { currentPersonaId, currentPersona } = usePersona();
+  const navigate = useNavigate();
 
   const resolvedAccentColor = currentPersona ? currentPersona.colorTheme : '#17b363';
 
@@ -40,43 +42,27 @@ export function NotFoundPage({ className = '', onGoHome }) {
       return;
     }
 
-    goToScreenById(SCREEN_IDS.WELCOME);
-  }, [onGoHome, goToScreenById]);
+    navigate('/');
+  }, [onGoHome, navigate]);
 
   /**
    * Handle navigating to the persona selection screen.
    */
   const handleGoToPersonaSelection = useCallback(() => {
-    goToScreenById(SCREEN_IDS.PERSONA_SELECTION);
-  }, [goToScreenById]);
+    navigate('/persona-switch');
+  }, [navigate]);
 
   /**
    * Handle navigating to the current persona's dashboard.
    */
   const handleGoToDashboard = useCallback(() => {
     if (!currentPersonaId) {
-      goToScreenById(SCREEN_IDS.WELCOME);
+      navigate('/');
       return;
     }
 
-    switch (currentPersonaId) {
-      case 'persona-lukas':
-        goToScreenById(SCREEN_IDS.LUKAS_DASHBOARD);
-        break;
-      case 'persona-elena':
-        goToScreenById(SCREEN_IDS.ELENA_DASHBOARD);
-        break;
-      case 'persona-sophie':
-        goToScreenById(SCREEN_IDS.SOPHIE_DASHBOARD);
-        break;
-      case 'persona-james':
-        goToScreenById(SCREEN_IDS.JAMES_DASHBOARD);
-        break;
-      default:
-        goToScreenById(SCREEN_IDS.WELCOME);
-        break;
-    }
-  }, [currentPersonaId, goToScreenById]);
+    navigate('/home');
+  }, [currentPersonaId, navigate]);
 
   /**
    * Handle restarting the flow from the beginning.

@@ -10,6 +10,7 @@
 
 import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import { GlassCard } from '@/components/common/GlassCard';
 import { Avatar } from '@/components/common/Avatar';
@@ -485,6 +486,7 @@ export function PersonaSwitchPage({
   const { currentPersonaId, currentPersona, personaList, setPersona } = usePersona();
   const { loginAsPersona, isAuthenticated } = useAuth();
   const { addNotification, goToScreenById } = useApp();
+  const navigate = useNavigate();
 
   const [loadingPersonaId, setLoadingPersonaId] = useState(null);
   const [showTransition, setShowTransition] = useState(false);
@@ -513,8 +515,7 @@ export function PersonaSwitchPage({
 
     // If selecting the current persona, just navigate to their dashboard
     if (personaId === currentPersonaId) {
-      const dashboardScreenId = resolveDashboardScreenId(personaId);
-      goToScreenById(dashboardScreenId);
+      navigate('/home');
       return;
     }
 
@@ -569,8 +570,7 @@ export function PersonaSwitchPage({
           setLoadingPersonaId(null);
           setTargetPersona(null);
 
-          const dashboardScreenId = resolveDashboardScreenId(personaId);
-          goToScreenById(dashboardScreenId);
+          navigate('/home');
         }, 800);
       } catch (err) {
         if (!mountedRef.current) return;
@@ -594,12 +594,11 @@ export function PersonaSwitchPage({
     }
 
     if (currentPersonaId) {
-      const dashboardScreenId = resolveDashboardScreenId(currentPersonaId);
-      goToScreenById(dashboardScreenId);
+      navigate('/home');
     } else {
-      goToScreenById(SCREEN_IDS.WELCOME);
+      navigate('/');
     }
-  }, [onCancel, currentPersonaId, goToScreenById]);
+  }, [onCancel, currentPersonaId, navigate]);
 
   /**
    * All connected systems loaded from mock data.
@@ -834,7 +833,7 @@ export function PersonaSwitchPage({
                     <button
                       type="button"
                       className="w-full flex items-center gap-2 px-3 py-2 text-xs text-dreeso-dark-200 bg-glass-white border border-glass-border rounded-xl transition-all duration-150 hover:bg-glass-hover hover:text-white hover:border-dreeso-accent-500/30 focus:outline-none focus:ring-1 focus:ring-dreeso-accent-500/50 text-left"
-                      onClick={() => goToScreenById(SCREEN_IDS.WELCOME)}
+                      onClick={() => navigate('/')}
                       disabled={isAnyLoading}
                     >
                       <svg className="w-3.5 h-3.5 text-dreeso-accent-400 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
@@ -858,7 +857,7 @@ export function PersonaSwitchPage({
                     <button
                       type="button"
                       className="w-full flex items-center gap-2 px-3 py-2 text-xs text-dreeso-dark-200 bg-glass-white border border-glass-border rounded-xl transition-all duration-150 hover:bg-glass-hover hover:text-white hover:border-dreeso-accent-500/30 focus:outline-none focus:ring-1 focus:ring-dreeso-accent-500/50 text-left"
-                      onClick={() => goToScreenById(SCREEN_IDS.CROSS_DOMAIN_OVERVIEW)}
+                      onClick={() => navigate('/cross-domain')}
                       disabled={isAnyLoading}
                     >
                       <svg className="w-3.5 h-3.5 text-dreeso-accent-400 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">

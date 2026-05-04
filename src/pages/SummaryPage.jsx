@@ -9,6 +9,7 @@
 
 import { useState, useCallback, useMemo, useEffect, useRef } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { Layout } from '@/components/layout/Layout';
 import { GlassCard } from '@/components/common/GlassCard';
 import { Avatar } from '@/components/common/Avatar';
@@ -572,6 +573,7 @@ export function SummaryPage({ className = '' }) {
   const { currentPersonaId, currentPersona, personaList } = usePersona();
   const { session } = useAuth();
   const { addNotification, goToScreenById } = useApp();
+  const navigate = useNavigate();
 
   const [isLoading, setIsLoading] = useState(true);
   const [allLogs, setAllLogs] = useState([]);
@@ -841,8 +843,8 @@ export function SummaryPage({ className = '' }) {
    * Handle navigating back to the cross-domain overview.
    */
   const handleBackToCrossDomain = useCallback(() => {
-    goToScreenById(SCREEN_IDS.CROSS_DOMAIN_OVERVIEW);
-  }, [goToScreenById]);
+    navigate('/cross-domain');
+  }, [navigate]);
 
   /**
    * Handle exporting session summary as JSON.
@@ -1304,7 +1306,7 @@ export function SummaryPage({ className = '' }) {
                     <button
                       type="button"
                       className="w-full flex items-center gap-2 px-3 py-2 text-xs text-dreeso-dark-200 bg-glass-white border border-glass-border rounded-xl transition-all duration-150 hover:bg-glass-hover hover:text-white hover:border-dreeso-accent-500/30 focus:outline-none focus:ring-1 focus:ring-dreeso-accent-500/50 text-left"
-                      onClick={() => goToScreenById(SCREEN_IDS.WELCOME)}
+                      onClick={() => navigate('/home')}
                     >
                       <svg className="w-3.5 h-3.5 text-dreeso-accent-400 shrink-0" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
                         <path fillRule="evenodd" d="M9.293 2.293a1 1 0 011.414 0l7 7A1 1 0 0117 11h-1v6a1 1 0 01-1 1h-2a1 1 0 01-1-1v-3a1 1 0 00-1-1H9a1 1 0 00-1 1v3a1 1 0 01-1 1H5a1 1 0 01-1-1v-6H3a1 1 0 01-.707-1.707l7-7z" clipRule="evenodd" />

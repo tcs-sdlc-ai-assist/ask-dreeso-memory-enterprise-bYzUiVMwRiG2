@@ -9,6 +9,7 @@
 
 import { useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { useAuth } from '@/contexts/AuthContext';
 import { useApp } from '@/contexts/AppContext';
 import { SCREEN_IDS } from '@/utils/constants';
@@ -35,6 +36,7 @@ export function ProtectedRoute({
 }) {
   const { isAuthenticated, loading } = useAuth();
   const { goToScreenById } = useApp();
+  const navigate = useNavigate();
 
   const resolvedRedirectScreenId = typeof redirectScreenId === 'string' && redirectScreenId.trim() !== ''
     ? redirectScreenId
@@ -46,9 +48,9 @@ export function ProtectedRoute({
         onRedirect();
       }
 
-      goToScreenById(resolvedRedirectScreenId);
+      navigate('/');
     }
-  }, [loading, isAuthenticated, goToScreenById, resolvedRedirectScreenId, onRedirect]);
+  }, [loading, isAuthenticated, navigate, onRedirect]);
 
   // While auth state is being initialized, show a loading indicator
   if (loading) {

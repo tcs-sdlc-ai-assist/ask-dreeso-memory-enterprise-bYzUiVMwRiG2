@@ -9,6 +9,7 @@
 
 import { useState, useCallback, useRef, useEffect } from 'react';
 import PropTypes from 'prop-types';
+import { useNavigate } from 'react-router-dom';
 import { useApp } from '@/contexts/AppContext';
 import { useAuth } from '@/contexts/AuthContext';
 import { usePersona } from '@/contexts/PersonaContext';
@@ -314,6 +315,7 @@ export function Navbar({ className = '' }) {
   const { goToScreenById, currentScreenIndex, totalScreens } = useApp();
   const { isAuthenticated, logout, loginAsPersona } = useAuth();
   const { currentPersonaId, currentPersona, personaList, setPersona } = usePersona();
+  const navigate = useNavigate();
 
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isPersonaDropdownOpen, setIsPersonaDropdownOpen] = useState(false);
@@ -348,8 +350,8 @@ export function Navbar({ className = '' }) {
    */
   const handleLogout = useCallback(() => {
     logout();
-    goToScreenById(SCREEN_IDS.WELCOME);
-  }, [logout, goToScreenById]);
+    navigate('/');
+  }, [logout, navigate]);
 
   /**
    * Toggle mobile menu.

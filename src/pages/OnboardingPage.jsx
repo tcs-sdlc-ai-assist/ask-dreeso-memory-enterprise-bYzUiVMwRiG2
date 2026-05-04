@@ -331,21 +331,9 @@ export function OnboardingPage({
       onComplete();
     }
 
-    // Update screen flow state for persistence
-    if (currentPersonaId === 'persona-lukas') {
-      goToScreenById(SCREEN_IDS.LUKAS_DASHBOARD);
-    } else if (currentPersonaId === 'persona-elena') {
-      goToScreenById(SCREEN_IDS.ELENA_DASHBOARD);
-    } else if (currentPersonaId === 'persona-sophie') {
-      goToScreenById(SCREEN_IDS.SOPHIE_DASHBOARD);
-    } else if (currentPersonaId === 'persona-james') {
-      goToScreenById(SCREEN_IDS.JAMES_DASHBOARD);
-    } else {
-      goToScreenById(SCREEN_IDS.PERSONA_SELECTION);
-    }
-
-    // Actual route navigation
+    // Navigate to dashboard
     navigate('/home');
+
   }, [currentPersonaId, goToScreenById, addNotification, onComplete, navigate]);
 
   /**
